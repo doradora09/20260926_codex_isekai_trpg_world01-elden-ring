@@ -4,8 +4,11 @@ Codexと対話しながら進行した、TTRPG風の異世界転移物語の公�
 DAY1からDAY98までの本編、挿絵、生徒名鑑、サイドストーリー、旅日誌を収録しています。
 
 - [DAY1から読む](https://doradora09.github.io/20260926_codex_isekai_trpg_world01-elden-ring/reader.html#day-1)
-- [本編トップ](https://doradora09.github.io/20260926_codex_isekai_trpg_world01-elden-ring/)
+- [オープニング（公開トップ）](https://doradora09.github.io/20260926_codex_isekai_trpg_world01-elden-ring/)
 - [旅日誌](https://doradora09.github.io/20260926_codex_isekai_trpg_world01-elden-ring/calendar.html)
+
+公開トップ → DAY1から通読 → 最終話 → エンドロールの順で読めます。
+生徒名鑑・地図・通常の入力欄は[最新の盤面](https://doradora09.github.io/20260926_codex_isekai_trpg_world01-elden-ring/board.html)に残しています。
 
 ## どのように作ったか
 

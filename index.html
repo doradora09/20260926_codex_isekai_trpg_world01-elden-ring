@@ -1,2 +1,380 @@
-<!doctype html><html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ゲーム知識で異世界転移してみた with Codex</title><meta name="description" content="クラス32人の異世界転移。あなたの選択で始まる冒険。"><link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230c1723'/%3E%3Cpath d='M16 4 26 16 16 28 6 16Z' fill='none' stroke='%23dfbc77' stroke-width='2'/%3E%3C/svg%3E"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="map.css"><link rel="stylesheet" href="characters.css"><link rel="stylesheet" href="new-content.css"></head><body><header><div class="brand">✧ <span>異世界転移録 <small>with Codex</small></span></div><span class="edition">2年3組 ／ 第一章</span><button id="rosterToggle">生徒一覧</button><button id="mapToggle">地図表示</button><a id="openingLink" href="opening.html" style="color:#dfbc77;font-size:13px;white-space:nowrap">オープニング</a><a id="readerLink" href="reader.html#day-1" style="color:#dfbc77;font-size:13px;white-space:nowrap">DAY1から読む</a><a id="creditsLink" href="credits.html" style="color:#dfbc77;font-size:13px;white-space:nowrap">エンドロール</a><a id="routePlanLink" href="route-map.html#overview" style="color:#dfbc77;font-size:13px;white-space:nowrap">作戦地図</a><button id="choicesToggle" aria-expanded="false" aria-controls="choicePanel">選択肢</button><button id="artToggle" aria-pressed="false">絵だけ見る</button><button id="infoToggle" aria-expanded="false" aria-controls="sideInfo">人物・記録</button><details class="save-menu"><summary>セーブ / 読込</summary><div class="save-popover"><button id="export">記録を保存 ↓</button><label for="importFile">保存した記録を読み込む</label><input id="importFile" type="file" accept=".json,application/json"><span id="importStatus" role="status"></span></div></details></header><main><section class="heading"><div><p class="eyebrow">ゲーム知識で異世界転移してみた</p><h1>三十三人目の返事。</h1></div><div class="turn"><small>TURN</small><strong id="turn">01</strong></div></section><div class="layout"><div class="primary"><section class="scene"><img id="sceneImage" hidden alt="王座に座る先生、エレの教会で戻ってきたメリナとの再会、元の教室で出席を取る先生と生徒たちの三場面"><div class="scene-caption"><span>DAY98 10:00</span><h2>三十三人目の返事。</h2></div></section><section class="story panel reading-pane" tabindex="0" aria-label="物語本文" aria-live="polite"><div class="section-label"><span id="chapter">01 / 転移</span><span>STORY</span></div><h2 id="storyTitle"></h2><div id="storyText"></div><blockquote id="quote"></blockquote></section><section class="decision" id="choicePanel"><div class="section-label"><h2 id="choiceTitle">最初の一枚を選ぶ</h2><span id="choiceMeta">固有スキル / 3択</span></div><div id="choices" tabindex="0" aria-label="現在の選択肢"></div><p id="hint" class="hint"></p><button class="confirm" id="confirm" disabled>カードを選んでください</button></section><section class="panel handoff"><h2>次の一手を、Codexと。</h2><p>用意された選択肢以外の行動もできます。やりたいことを記録と一緒に、この会話へ渡してください。</p><label for="freeAction">あなたの自由行動</label><textarea id="freeAction" placeholder="例：カードの説明文を裏側まで読んで、召喚者に帰還条件を質問する。"></textarea><label for="designNote">設計者メモ · ルールや展開への口出し、大歓迎</label><textarea id="designNote" placeholder="例：スキルカードは後から組み替え可能にしたい。NPCにも独自の目的を持たせたい。"></textarea><button id="handoff">引き継ぎ文を表示</button><textarea id="handoffText" readonly hidden aria-label="Codexへの引き継ぎ文"></textarea><p class="hint">このHTMLはローカルの物語です。新しい展開や画像の生成は、この会話で行います。</p></section></div><aside id="sideInfo" tabindex="0" aria-label="プレイヤー・NPC・冒険の記録"><section class="panel player"><div class="section-label"><span>PLAYER 01</span><span>あなた</span></div><h2>私 <small>42歳・先生</small></h2><p class="muted">原作の攻略を先読みし、<br>現地で確かめて進む。</p><div class="stat"><span>体調</span><b id="teacherCondition">打撲は赤瓶で回復／赤3回</b></div><div class="bar"><i></i></div><div class="stat"><span>固有スキル</span><b id="skill">攻略サイト先読み</b></div><div class="stat"><span>所持品</span><span id="items">制服・スマホ・通学鞄</span></div><div class="stat"><span>方針</span><span id="approach">まだ決めていない</span></div></section><section class="panel"><div class="section-label"><h2>クラスメイト</h2><span>生徒32人</span></div><div id="npcs"></div><p class="hint">生徒32人＋先生のあなた。<br>32人の詳細は「生徒一覧」へ。</p></section><section class="panel"><div class="section-label"><h2>冒険の記録</h2><span>LOG</span></div><p><a style="color:#dfbc77" href="story/turn-1-109.html">ひとつ前の場面</a></p><p><a style="color:#dfbc77" href="story/academy-days46-50.html">DAY46–50を順番に読む</a></p><p><a style="color:#dfbc77" href="records.html">各ターンの状態・判定記録</a></p><ol id="log"></ol></section><section class="worldnote"><p class="eyebrow">WORLD RULE 001</p><p>帰還済み 0 / 生徒32人。<br>広間への撤退と、元の世界への帰還は別。</p></section></aside></div><footer><span>行動・会話・設計の相談は、隣のチャットへ。</span><span id="saveStatus">このブラウザに自動保存</span></footer></main><script src="live-version.js"></script><script src="live-refresh.js"></script><script src="game.js"></script><script src="art-controls.js"></script><script src="map-controls.js"></script><script src="characters-data.js"></script><script src="roster-controls.js"></script><script src="time-controls.js"></script><script src="guide-controls.js"></script><script src="calendar-controls.js"></script>
-<script src="new-content.js"></script><a href="story/mountaintops-days75-79.html" style="position:fixed;bottom:8px;right:12px;z-index:30;font-size:12px;color:#efd096">山嶺への5日間</a><a href="story/farum-days86-89.html" style="position:fixed;bottom:8px;left:12px;z-index:30;font-size:12px;color:#efd096">DAY86–89を読む</a></body></html>
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0b1118">
+<meta name="description" content="いつもの教室が異世界へ。先生と32人の生徒、まさかのエルデンリング。期限100日、目標は全員生還。30秒の映画予告風オープニング。">
+<title>オープニング｜ゲーム知識で異世界転移してみた</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3 28 16 16 29 4 16Z' fill='%230b1118' stroke='%23d5b876'/%3E%3C/svg%3E">
+<style>
+
+:root{color-scheme:dark;--ink:#060809;--paper:#f5f1e6;--gold:#d7b77a;--line:#d7b77a40;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--ink);color:var(--paper)}button,a,input{touch-action:manipulation}button,a{color:inherit}button{font:inherit;cursor:pointer;border:1px solid var(--line);background:#10171bcc;border-radius:3px;padding:9px 14px}a{text-decoration:none}button:hover,a:hover{color:#ffe0a3}button:disabled{opacity:.4;cursor:default}button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--gold);outline-offset:4px}[hidden]{display:none!important}h1,h2{font-family:"Hiragino Mincho ProN","Yu Mincho",YuMincho,serif;font-weight:600}.eyebrow{font-size:11px;letter-spacing:.2em;color:var(--gold)}.visually-hidden{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+#experience{position:relative;height:100svh;min-height:540px;overflow:hidden;background:#030405;isolation:isolate}#experience:fullscreen{height:100vh}.topbar{position:absolute;z-index:8;inset:0 0 auto;padding:20px clamp(20px,4vw,64px);display:flex;justify-content:space-between;gap:14px;align-items:center;min-height:60px;background:linear-gradient(#000c,transparent);font-size:11px;letter-spacing:.08em}.brand{display:flex;align-items:center;gap:12px}.brand:before{content:"";display:block;width:9px;height:9px;border:1px solid var(--gold);transform:rotate(45deg)}.topbar a{padding:6px 0;border-bottom:1px solid #ffffff33}
+.poster{position:absolute;inset:0;z-index:7;display:grid;align-content:center;padding:90px clamp(28px,8vw,140px) 100px;background:linear-gradient(90deg,#05080bee,#05080bab 53%,#05080b25),url('assets/opening-classroom-v1.jpg') 62% 40%/cover}.poster .eyebrow{margin:0 0 22px}.poster h1{font-size:clamp(34px,4.4vw,72px);line-height:1.45;letter-spacing:.06em;margin:0;text-shadow:0 4px 30px #000}.poster .with{color:var(--gold);letter-spacing:.3em;font-size:14px;margin:16px 0 25px}.poster .lead{font-size:14px;line-height:1.9;color:#e1ddd3;margin:0 0 26px}.poster .note{font-size:11px;color:#acb0af;margin-top:20px;letter-spacing:.05em}.actions{display:flex;align-items:center;gap:22px;flex-wrap:wrap}.primary{display:inline-flex;justify-content:center;align-items:center;gap:22px;background:var(--gold);border:1px solid var(--gold);color:#101518!important;padding:15px 24px;font-size:13px;min-height:50px;letter-spacing:.08em}.primary:hover{background:#f0d3a0}.secondary{font-size:12px;padding:8px 0;border:0;border-bottom:1px solid #ffffff50;background:transparent}
+.stage,.scene,.visual,.scene img,.scene svg,.shade{position:absolute;inset:0;width:100%;height:100%}.stage{overflow:hidden}.stage:after{content:"";position:absolute;inset:0;z-index:3;pointer-events:none;background:linear-gradient(#000a,transparent 13%,transparent 77%,#000b)}.scene{visibility:hidden;opacity:0;overflow:hidden;background:#030405}.scene.current{visibility:visible;opacity:1}.visual{will-change:transform;transform-origin:var(--origin,50% 50%)}.scene img{object-fit:cover;object-position:var(--focus,50% 50%)}.scene svg{display:block}.shade{background:linear-gradient(transparent 35%,#05080b40 57%,#05080be0 100%)}.caption{position:absolute;z-index:2;left:clamp(28px,8vw,140px);right:clamp(28px,8vw,140px);bottom:clamp(136px,19vh,205px);text-shadow:0 3px 24px #000}.caption h2{font-size:clamp(30px,4.5vw,72px);line-height:1.45;letter-spacing:.045em;margin:12px 0;overflow-wrap:anywhere}.caption p{font-size:clamp(13px,1.3vw,17px);line-height:1.7;color:#d9d5cc;margin:10px 0 0;letter-spacing:.06em}.dialogue .caption h2{font-size:clamp(28px,3.8vw,60px)}.center .caption,.card .caption,.impact .caption{inset:50% 24px auto;text-align:center;transform:translateY(-55%);max-width:none}.reveal .caption h2{font-size:clamp(36px,5.6vw,90px);line-height:1.45}.reveal .shade{background:linear-gradient(#02050820,#02050836 40%,#0205089c)}.card{background:radial-gradient(ellipse at 50% 55%,#191711 0,transparent 64%),#030405}.card .shade{display:none}.card h2{font-size:clamp(50px,7.8vw,132px);letter-spacing:.08em;line-height:1.4;text-shadow:0 0 40px #d4b47718}.card em{font-style:normal;font-size:1.32em;color:var(--gold);font-variant-numeric:lining-nums}.card strong{color:var(--gold);font-weight:600}.card .caption p{font-size:clamp(12px,1.5vw,18px);letter-spacing:.16em;margin-top:20px}.impact .caption h2{font-size:clamp(64px,10vw,158px);font-weight:700;letter-spacing:.1em}.impact .shade{background:#05070b35}.red .shade{background:linear-gradient(#11000410,#16030880)}.red .caption h2{font-size:clamp(36px,5.8vw,94px)}.blackout{background:#000}.blackout .shade{display:none}.title-scene .caption{inset:47% 24px auto;text-align:center;transform:translateY(-50%)}.title-scene .caption h2{font-size:clamp(34px,4.6vw,72px);line-height:1.5;letter-spacing:.065em}.title-scene .caption p{font-size:13px;color:var(--gold);letter-spacing:.25em}.end-actions{justify-content:center;margin-top:26px}.final-note{font-size:10px!important;letter-spacing:.06em!important;color:#b7b7b2!important;margin-top:16px!important}
+.controls{position:absolute;inset:auto 0 0;z-index:10;padding:9px clamp(20px,4vw,64px) 17px;background:linear-gradient(transparent,#050709e8 36%)}.control-row{display:flex;align-items:center;gap:12px}.control-row button{font-size:11px;min-height:36px;padding:7px 12px}.spacer{flex:1}.time{font-size:10px;color:#bfc0bb;font-variant-numeric:tabular-nums;white-space:nowrap}#progress{display:block;width:100%;height:16px;margin:0 0 7px;accent-color:var(--gold);cursor:pointer}.chapter-dots{display:flex;gap:5px}.control-row .chapter-dots button{padding:12px 4px;width:24px;border:0;background:none;min-height:32px}.chapter-dots button:after{content:"";display:block;height:2px;width:100%;background:#b9ab8950}.chapter-dots button[aria-current=true]:after{background:var(--gold)}#motionLabel{display:flex;gap:5px;align-items:center;font-size:10px;white-space:nowrap;color:#bfc0bb}input[type=checkbox]{accent-color:var(--gold)}.initial .controls{display:none}#status{position:absolute;left:24px;right:24px;bottom:118px;z-index:12;font-size:12px;background:#090d13e6;padding:10px}noscript{position:relative;z-index:20;display:block;background:#111820;padding:24px}
+@media(max-width:700px){#experience{min-height:560px}.topbar{padding:16px 18px;font-size:10px;min-height:55px}.brand{gap:8px}.poster{padding:84px 28px 105px;background-position:62% 40%}.poster h1{font-size:clamp(30px,7.6vw,47px)}.poster .eyebrow{font-size:10px}.poster .lead{font-size:13px}.scene img{object-position:var(--mobile-focus,var(--focus,50% 50%))}.caption{left:24px;right:24px;bottom:180px}.caption h2{font-size:clamp(27px,6.8vw,43px)}.dialogue .caption h2{font-size:clamp(25px,6.5vw,38px)}.caption p{font-size:12px}.center .caption,.card .caption,.impact .caption{left:18px;right:18px;top:46%}.reveal .caption h2{font-size:clamp(28px,7.1vw,48px)}.card h2{font-size:clamp(39px,10.5vw,70px)}.card .caption p{font-size:11px;letter-spacing:.09em}.impact .caption h2{font-size:clamp(59px,17vw,105px)}.red .caption h2{font-size:clamp(31px,7.8vw,52px)}.title-scene .caption{inset:44% 22px auto}.title-scene .caption h2{font-size:clamp(28px,7.1vw,42px)}.title-scene .caption p{font-size:11px}.end-actions{gap:16px;margin-top:22px}.end-actions .primary{font-size:12px;padding:13px 18px}.controls{padding:10px 18px 13px}.control-row{gap:8px;flex-wrap:wrap}.control-row .spacer{display:none}.control-row button{padding:7px 9px;font-size:10px}.time{margin-right:auto}.chapter-dots{order:5;flex-basis:100%;justify-content:center}.control-row .chapter-dots button{width:27px}#motionLabel{font-size:9px}}
+@media(max-height:560px) and (min-width:701px){#experience{min-height:430px}.topbar{padding-top:12px}.poster{padding-top:60px;padding-bottom:60px}.poster h1{font-size:34px}.poster .lead{margin-bottom:12px}.poster .with{margin:8px 0 12px}.poster .eyebrow{margin-bottom:12px}.caption{bottom:112px}.caption h2,.dialogue .caption h2{font-size:32px}.reveal .caption h2{font-size:46px}.card h2{font-size:65px}.impact .caption h2{font-size:78px}.title-scene .caption{top:44%}.title-scene .caption h2{font-size:32px}.end-actions{margin-top:13px}.primary{padding:11px 20px;min-height:42px}}
+@media(prefers-reduced-motion:reduce){.visual{will-change:auto}}.reduced .visual{will-change:auto}
+.briefing .caption p{font-size:clamp(16px,1.7vw,23px);line-height:1.8;letter-spacing:.06em;color:#fff;text-shadow:0 2px 8px #000,0 2px 24px #000;margin:18px auto 0;text-wrap:balance;max-width:38em}
+@media(max-width:700px){.briefing .caption p{font-size:14px;line-height:1.85;letter-spacing:.025em;max-width:24em}}
+.sudden{background:#000}.knowledge .caption h2{font-size:clamp(30px,6.4vw,100px);letter-spacing:.03em}
+@media(max-width:700px){.knowledge .caption h2{font-size:clamp(27px,7.4vw,42px);letter-spacing:.015em}}
+.archive-links{display:flex;justify-content:center;flex-wrap:wrap;gap:12px 26px;margin-top:18px;font-size:12px;line-height:1.6}.archive-links a{color:#b8b6b0;text-underline-offset:5px}.archive-links a:hover{color:#fff}
+</style>
+<script>
+if (/^#(?:students|student-[^/]+|supplies-[^/]+)$/.test(location.hash)) {
+  location.replace('board.html' + location.search + location.hash);
+}
+</script>
+</head>
+<body>
+<main id="experience" class="initial" aria-label="異世界転移録 オープニング">
+<header class="topbar"><span class="brand">異世界転移録 <span aria-hidden="true">/</span> WORLD 01</span><a href="reader.html#day-1">DAY1から読む →</a></header>
+<div id="stage" class="stage" aria-label="オープニングの場面"></div>
+<section id="poster" class="poster" aria-labelledby="openingTitle">
+<p class="eyebrow">30 SECOND TRAILER</p>
+<h1 id="openingTitle">ゲーム知識で<br>異世界転移してみた</h1>
+<p class="with">with Codex</p>
+<p class="lead">いつもの教室が、異世界へ。<br>先生一人と生徒三十二人の、帰り道を探す冒険。</p>
+<div class="actions"><button id="start" class="primary">30秒の予告を再生 <span aria-hidden="true">▶</span></button><a class="secondary" href="reader.html#day-1">DAY1から読む →</a></div>
+<p class="note">30秒・音声なし ／ 教室から始まる、第1世界の冒険</p>
+<nav class="archive-links" aria-label="その他の入口"><a href="reader.html#scene-1-2">序章から読む</a><a href="board.html">最新の盤面を確認する →</a></nav>
+</section>
+<div id="controls" class="controls" aria-label="再生コントロール" hidden>
+<label class="visually-hidden" for="progress">再生位置（秒）</label><input type="range" id="progress" min="0" max="30" step="0.1" value="0" aria-valuetext="0秒 / 30秒">
+<div class="control-row"><button id="play" aria-label="一時停止">一時停止 Ⅱ</button><button id="restart" aria-label="最初から再生">↺</button><span id="time" class="time">0:00 / 0:30</span><nav id="chapters" class="chapter-dots" aria-label="場面を選ぶ"></nav><span class="spacer"></span><label id="motionLabel"><input id="motion" type="checkbox">動きを控える</label><button id="fullscreen">全画面 ↗</button></div>
+</div>
+<p id="status" role="status" hidden></p>
+<p id="announcement" class="visually-hidden" aria-live="polite"></p>
+<noscript>オープニングの再生にはJavaScriptが必要です。<a href="reader.html#day-1">DAY1から物語を読む →</a></noscript>
+</main>
+<script>
+(() => {
+  'use strict';
+  const scenes = [
+  {
+    "duration": 2.5,
+    "name": "先生のいる教室",
+    "chapter": true,
+    "type": "dialogue",
+    "image": "assets/opening-classroom-v1.jpg",
+    "alt": "いつもの教室で出席簿を手に生徒に話しかける先生",
+    "focus": "58% 35%",
+    "mobile": "62% 32%",
+    "title": "「はい、席について。」",
+    "text": "担任の先生と、三十二人の生徒。",
+    "motion": [
+      1.01,
+      1.055,
+      0,
+      0
+    ]
+  },
+  {
+    "duration": 1,
+    "name": "突然の",
+    "type": "card sudden",
+    "title": "突然の、"
+  },
+  {
+    "duration": 1.8,
+    "name": "突然の異世界転移",
+    "chapter": true,
+    "type": "center reveal briefing",
+    "image": "assets/opening-transfer-v1.jpg",
+    "alt": "教室が青白い光に包まれ、生徒をかばおうと腕を伸ばす先生",
+    "focus": "58% 35%",
+    "mobile": "60% 35%",
+    "title": "異世界転移。",
+    "motion": [
+      1.02,
+      1.1,
+      0,
+      -1
+    ],
+    "text": "「全員、離れるな！」"
+  },
+  {
+    "duration": 0.3,
+    "name": "暗転",
+    "type": "blackout"
+  },
+  {
+    "duration": 1,
+    "name": "境界の女神",
+    "image": "assets/lyucia-turn-1-2.webp",
+    "alt": "光の門の前に立つ境界の女神リュシア",
+    "focus": "50% 0%",
+    "mobile": "51% 25%",
+    "motion": [
+      1,
+      1.04,
+      0,
+      0
+    ]
+  },
+  {
+    "duration": 3,
+    "name": "期限は百日",
+    "chapter": true,
+    "type": "card briefing",
+    "title": "期限、<em>100</em>日。",
+    "text": "クリアできなければ、元の世界へ帰れない。"
+  },
+  {
+    "duration": 2.7,
+    "name": "まさかのエルデンリング",
+    "chapter": true,
+    "type": "center reveal briefing",
+    "image": "assets/elden-limgrave-turn-1-4.webp",
+    "alt": "転移した先に広がるリムグレイブの草原と巨大な黄金樹",
+    "focus": "50% 40%",
+    "title": "まさかの、<br>エルデンリング。",
+    "motion": [
+      1.1,
+      1.0,
+      0,
+      0
+    ],
+    "text": "教室にいた33人が、ゲームの世界へ。"
+  },
+  {
+    "duration": 1.3,
+    "name": "探す",
+    "chapter": true,
+    "type": "impact",
+    "image": "assets/camp-turn-1-11.webp",
+    "alt": "廃教会で記録をつけ拠点を整える生徒たち",
+    "focus": "50% 55%",
+    "mobile": "38% 60%",
+    "title": "探す。",
+    "motion": [
+      1,
+      1.06,
+      0,
+      0
+    ]
+  },
+  {
+    "duration": 1.3,
+    "name": "守る",
+    "type": "impact",
+    "image": "assets/single-sentry-turn-1-27.webp",
+    "alt": "盾と槍を構え、敵兵に向き合う生徒たち",
+    "crop": [
+      465,
+      0,
+      948,
+      836,
+      1882,
+      836
+    ],
+    "title": "守る。",
+    "motion": [
+      1.02,
+      1.08,
+      0,
+      0
+    ]
+  },
+  {
+    "duration": 1.3,
+    "name": "抗う",
+    "type": "impact",
+    "image": "assets/gatefront-assault-turn-1-34.webp",
+    "alt": "壁の陰で杖を構え、敵陣へ狙いを定める生徒",
+    "crop": [
+      0,
+      0,
+      509,
+      941,
+      1672,
+      941
+    ],
+    "title": "抗う。",
+    "motion": [
+      1.02,
+      1.09,
+      0,
+      0
+    ]
+  },
+  {
+    "duration": 1,
+    "name": "攻略は",
+    "type": "card",
+    "title": "攻略は、"
+  },
+  {
+    "duration": 1.6,
+    "name": "赤い月",
+    "chapter": true,
+    "type": "center red",
+    "image": "assets/red-moon-vigil-turn-1-38.webp",
+    "alt": "赤月の下で教会を守ろうとする先生と生徒たち",
+    "focus": "50% 28%",
+    "title": "通じるのか。",
+    "motion": [
+      1,
+      1.05,
+      0,
+      0
+    ]
+  },
+  {
+    "duration": 1.2,
+    "name": "黄金の騎士",
+    "image": "assets/tree-sentinel-battle-turn-1-41.webp",
+    "alt": "突進する黄金の騎士を囲み、攻撃に備える生徒たち",
+    "crop": [
+      490,
+      0,
+      643,
+      941,
+      1672,
+      941
+    ],
+    "motion": [
+      1,
+      1.07,
+      0,
+      0
+    ]
+  },
+  {
+    "duration": 1.2,
+    "name": "城へ",
+    "image": "assets/stormveil-first-steps-turn-1-49.webp",
+    "alt": "険しい石の道からストームヴィル城へ向かう一行",
+    "crop": [
+      0,
+      0,
+      459,
+      941,
+      1672,
+      941
+    ],
+    "motion": [
+      1.05,
+      1,
+      0,
+      0
+    ]
+  },
+  {
+    "duration": 2.3,
+    "name": "帰れるのか",
+    "type": "dialogue",
+    "image": "assets/teacher-turn-1-8.webp",
+    "alt": "生徒たちのそばで攻略情報を見ながら次の一手を考える先生",
+    "focus": "50% 35%",
+    "mobile": "49% 30%",
+    "title": "「帰れるのか……？」",
+    "motion": [
+      1.01,
+      1.075,
+      0,
+      0
+    ]
+  },
+  {
+    "duration": 1.8,
+    "name": "ゲーム知識で",
+    "type": "card knowledge",
+    "title": "<strong>ゲーム知識で――！</strong>"
+  },
+  {
+    "duration": 2.7,
+    "name": "目標は全員生還",
+    "chapter": true,
+    "type": "card",
+    "title": "目標は、<br><strong>全員生還。</strong>"
+  },
+  {
+    "duration": 2,
+    "name": "旅のはじまり",
+    "chapter": true,
+    "type": "card title-scene",
+    "kicker": "第1世界 ── エルデンリング編",
+    "title": "ゲーム知識で<br>異世界転移してみた",
+    "text": "with Codex",
+    "end": true
+  }
+];
+  const $ = id => document.getElementById(id);
+  const root=$('experience'), stage=$('stage'), progress=$('progress'), play=$('play');
+  let total=0,elapsed=0,current=-1,playing=false,started=false,last=0,frame=0;
+  const motionQuery=matchMedia('(prefers-reduced-motion: reduce)');
+  $('motion').checked=motionQuery.matches;
+  const applyMotion=()=>root.classList.toggle('reduced',$('motion').checked);
+  applyMotion();$('motion').addEventListener('change',()=>{applyMotion();render();});
+  let chapterNumber=0;
+  scenes.forEach((scene,i)=>{
+    scene.start=total;total+=scene.duration;
+    const section=document.createElement('section');
+    section.className=`scene ${scene.type||''}`;section.setAttribute('aria-hidden','true');section.inert=true;
+    section.style.setProperty('--focus',scene.focus||'50% 50%');section.style.setProperty('--mobile-focus',scene.mobile||scene.focus||'50% 50%');
+    let artwork='';
+    if(scene.image){
+      if(scene.crop){
+        const [x,y,w,h,fullW,fullH]=scene.crop;
+        artwork=`<div class="visual"><svg viewBox="${x} ${y} ${w} ${h}" preserveAspectRatio="xMidYMid slice" role="img" aria-label="${scene.alt}"><image href="${scene.image}" width="${fullW}" height="${fullH}"/></svg></div>`;
+      }else artwork=`<div class="visual"><img src="${scene.image}" alt="${scene.alt}" decoding="async"></div>`;
+    }
+    const caption=scene.title?`<div class="caption">${scene.kicker?`<span class="eyebrow">${scene.kicker}</span>`:''}<h2>${scene.title}</h2>${scene.text?`<p>${scene.text}</p>`:''}${scene.end?'<div class="actions end-actions"><a class="primary" href="reader.html#day-1">DAY1から読む <span aria-hidden="true">→</span></a><button id="replay" class="secondary">もう一度見る</button></div><p class="final-note">人間の選択と、Codexの進行で紡いだ冒険。</p><nav class="archive-links" aria-label="その他の入口"><a href="board.html">最新の盤面を確認する →</a></nav>':''}</div>`:'';
+    section.innerHTML=artwork+'<div class="shade"></div>'+caption;
+    stage.append(section);scene.element=section;scene.visual=section.querySelector('.visual');
+    if(scene.chapter){
+      chapterNumber++;
+      const button=document.createElement('button');button.type='button';button.setAttribute('aria-label',`${chapterNumber}. ${scene.name}`);button.title=scene.name;button.setAttribute('aria-current','false');button.addEventListener('click',()=>{elapsed=scene.start;if(!started)begin();render();});$('chapters').append(button);scene.button=button;
+    }
+  });
+  total=Math.round(total*10)/10;
+  progress.max=total;
+  const clock=n=>`${Math.floor(n/60)}:${String(Math.floor(n%60)).padStart(2,'0')}`;
+  function render(){
+    const index=scenes.findIndex(s=>elapsed<s.start+s.duration);
+    const next=index<0?scenes.length-1:index;
+    if(next!==current){
+      const focused=document.activeElement;
+      if(current>=0&&scenes[current].element.contains(focused))play.focus();
+      scenes.forEach((scene,i)=>{const active=i===next;scene.element.classList.toggle('current',active);scene.element.setAttribute('aria-hidden',String(!active));scene.element.inert=!active;});
+      current=next;const activeChapter=scenes.slice(0,next+1).reverse().find(s=>s.button);scenes.forEach(s=>{if(s.button)s.button.setAttribute('aria-current',String(s===activeChapter));});if(scenes[next].type!=='blackout')$('announcement').textContent=scenes[next].name;
+    }
+    const scene=scenes[current];
+    const p=Math.min(1,Math.max(0,(elapsed-scene.start)/scene.duration));
+    if(scene.visual){const [from,to,dx,dy]=scene.motion||[1,1,0,0];scene.visual.style.transform=$('motion').checked?'none':`scale(${from+(to-from)*p}) translate(${dx*p}%,${dy*p}%)`;}
+    progress.value=elapsed;progress.setAttribute('aria-valuetext',`${Math.floor(elapsed)}秒 / ${total}秒`);
+    $('time').textContent=`${clock(elapsed)} / ${clock(total)}`;
+    play.textContent=playing?'一時停止 Ⅱ':elapsed>=total?'再生 ↻':'再生 ▶';
+    play.setAttribute('aria-label',playing?'一時停止':elapsed>=total?'もう一度再生':'再生');
+  }
+  function tick(now){
+    if(!playing)return;
+    elapsed=Math.min(total,elapsed+(now-last)/1000);last=now;
+    if(elapsed>=total)playing=false;
+    render();if(playing)frame=requestAnimationFrame(tick);
+  }
+  function setPlaying(value){cancelAnimationFrame(frame);playing=value;last=performance.now();render();if(playing)frame=requestAnimationFrame(tick);}
+  function begin(){started=true;root.classList.remove('initial');$('poster').hidden=true;$('controls').hidden=false;setPlaying(true);play.focus();}
+  function restart(){elapsed=0;if(!started)begin();else setPlaying(true);}
+  $('start').addEventListener('click',begin);$('restart').addEventListener('click',restart);$('replay').addEventListener('click',restart);
+  play.addEventListener('click',()=>{if(elapsed>=total)elapsed=0;setPlaying(!playing);});
+  progress.addEventListener('input',()=>{elapsed=Number(progress.value);last=performance.now();if(elapsed>=total)setPlaying(false);else render();});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden&&playing)setPlaying(false);});
+  document.addEventListener('keydown',event=>{
+    if(!started||/INPUT|SELECT|BUTTON|A|TEXTAREA/.test(event.target.tagName))return;
+    if(event.code==='Space'){event.preventDefault();play.click();}
+    if(event.code==='ArrowRight'||event.code==='ArrowLeft'){event.preventDefault();elapsed=Math.max(0,Math.min(total,elapsed+(event.code==='ArrowRight'?5:-5)));last=performance.now();if(elapsed>=total)setPlaying(false);else render();}
+  });
+  const full=$('fullscreen');
+  if(!root.requestFullscreen)full.hidden=true;
+  full.addEventListener('click',async()=>{try{if(document.fullscreenElement)await document.exitFullscreen();else await root.requestFullscreen();}catch{$('status').textContent='このブラウザーでは全画面に切り替えられません。通常表示で再生できます。';$('status').hidden=false;}});
+  document.addEventListener('fullscreenchange',()=>{full.textContent=document.fullscreenElement?'全画面を閉じる':'全画面 ↗';});
+})();
+</script>
+</body>
+</html>

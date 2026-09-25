@@ -8,8 +8,8 @@ const entries=[
 {"key": "final-battle108", "version": "1-108", "label": "DAY97・最終二連戦", "href": "story/final-battle-turn108.html", "selector": "#guideToggle"},
 {"key": "final-rescue97", "version": "1-107-rescue", "label": "DAY97・伝令なしの定時救援", "href": "guide.html#final-rescue-day97", "selector": "#guideToggle"},
 {"key": "final-preparation97", "version": "1-107", "label": "DAY97・最終戦の前に", "href": "story/final-preparation-day97.html", "selector": "#guideToggle"},
-{"key": "reference-student-01", "version": "1-106", "label": "佐伯 直人・現装備の立ち絵", "href": "index.html#student-01", "selector": "#rosterToggle"},
-{"key": "reference-student-19", "version": "1-106", "label": "久我 大地・現装備の立ち絵", "href": "index.html#student-19", "selector": "#rosterToggle"},
+{"key": "reference-student-01", "version": "1-106", "label": "佐伯 直人・現装備の立ち絵", "href": "board.html#student-01", "selector": "#rosterToggle"},
+{"key": "reference-student-19", "version": "1-106", "label": "久我 大地・現装備の立ち絵", "href": "board.html#student-19", "selector": "#rosterToggle"},
 {"key": "throne96", "version": "1-106", "label": "DAY96・第一王への再挑戦", "href": "story/throne-day96.html", "selector": "#guideToggle"},
 {"key": "equipment95", "version": "1-105", "label": "DAY95・強化14品とクララの調霊", "href": "guide.html#equipment-day95", "selector": "#guideToggle"},
 {"key": "smithing95", "version": "1-105", "label": "DAY95・再戦への準備", "href": "story/smithing-day95.html", "selector": "#guideToggle"},
@@ -33,8 +33,8 @@ const entries=[
 {"key": "mountaintops75-79", "version": "1-89", "label": "DAY75–79：雪山への五日間・5話", "href": "story/mountaintops-days75-79.html", "selector": "#guideToggle"},
 {"key": "guide-current79", "version": "day79-maintenance-1", "label": "攻略手帳 → DAY79帰還後の現在地・残り20行動日", "href": "guide.html#day79-status", "selector": "#guideToggle"},
 {"key": "world-mountaintops79", "version": "1-89", "label": "全体地図 → 火の釜の麓・主力13人の登録", "href": "world-map.html#grace-38", "selector": "#routePlanLink"},
-{"key": "roster-current79", "version": "day79-maintenance-1", "label": "生徒名鑑 → DAY75–79の実績・装備", "href": "index.html#students", "selector": "#rosterToggle"},
-{"key": "roster-kenta79", "version": "day79-maintenance-1", "label": "健太 → 装着タリスマンの表示", "href": "index.html#student-10", "selector": "#rosterToggle"},
+{"key": "roster-current79", "version": "day79-maintenance-1", "label": "生徒名鑑 → DAY75–79の実績・装備", "href": "board.html#students", "selector": "#rosterToggle"},
+{"key": "roster-kenta79", "version": "day79-maintenance-1", "label": "健太 → 装着タリスマンの表示", "href": "board.html#student-10", "selector": "#rosterToggle"},
 {key:"city66-68",version:"1-78",label:"新装備から黄金幻影へ・3話",href:"story/capital-city-days66-68.html",selector:"#guideToggle"},
 {key:"city77",version:"1-77",label:"DAY67・王都の街路と根",href:"story/academy-day67.html",selector:"#guideToggle"},
 {key:"equipment76",version:"1-76",label:"DAY66・戦利品の配分と新しい主力",href:"story/academy-day66.html",selector:"#rosterToggle"},
@@ -60,26 +60,26 @@ const entries=[
 {key:'world-map57',version:"1-57",label:'全体地図・未解放祝福',href:'world-map.html',selector:'#routePlanLink'},
 {key:'story-makoto57',version:"1-57",label:'誠：手を離しても（挿絵付き）',href:'side-stories.html#makoto-weight-of-one-stone',selector:'#rosterToggle'},
 {key:'story-misaki57',version:"1-57",label:'美咲：曲がる角を、ひとつ（挿絵付き）',href:'side-stories.html#misaki-a-turn-she-remembers',selector:'#rosterToggle'},
-{key:'reference-yota57',version:"1-57",label:'陽太：槍と革盾の新版資料',href:'index.html#student-11',selector:'#rosterToggle'},
+{key:'reference-yota57',version:"1-57",label:'陽太：槍と革盾の新版資料',href:'board.html#student-11',selector:'#rosterToggle'},
 
  {key:"academy-plan57",version:"1-57",label:"学院の鍵・二つ目の大ルーン",href:"guide.html#consequences/academy-plan",selector:"#guideToggle"},
  {key:"five-day-summary",version:"1-56",label:"DAY42–46：五日分の物語と挿絵",href:"story/five-days-52-56.html",selector:"#routePlanLink"},
  {key:'boss-godrick51',version:'1-51',label:'城主撃破：現在地と祝福',href:'route-map.html#castle',selector:'#routePlanLink'},
  {key:'story-kaede',version:'1-51',label:'楓の掌編と挿絵：もう一人の手の場所',href:'side-stories.html#kaede-room-for-another-hand',selector:'#rosterToggle'},
-{key:'reference-student-19',version:'day40-v2',label:'大地：最新版の装備三面図',href:'index.html#student-19',selector:'#rosterToggle'},
-{key:'reference-student-01',version:'day40-v2',label:'直人：最新版の装備三面図',href:'index.html#student-01',selector:'#rosterToggle'},
+{key:'reference-student-19',version:'day40-v2',label:'大地：最新版の装備三面図',href:'board.html#student-19',selector:'#rosterToggle'},
+{key:'reference-student-01',version:'day40-v2',label:'直人：最新版の装備三面図',href:'board.html#student-01',selector:'#rosterToggle'},
 {key:'roundtable-archive',version:'1-47',label:'円卓の補給：購入・祈祷・修理',href:'story/turn-1-47.html',selector:'#guideToggle'},
 {key:'story-yota',version:'1-46',label:'陽太の掌編：痛いと言えた日',href:'side-stories.html#yota-saying-it-hurts',selector:'#rosterToggle'},
-{key:'roster-growth',version:'1-56',label:'名鑑：探索隊と生活隊の成長',href:'index.html#students',selector:'#rosterToggle'},
+{key:'roster-growth',version:'1-56',label:'名鑑：探索隊と生活隊の成長',href:'board.html#students',selector:'#rosterToggle'},
 {key:'guide-consequences',version:'1-49',label:'攻略考察：城内の現地記録',href:'guide.html#consequences',selector:'#guideToggle'},
-{key:'supplies-water',version:'1-56',label:'資材：容器の買取と五日分の補給',href:'index.html#supplies-water',selector:'#suppliesToggle'},
+{key:'supplies-water',version:'1-56',label:'資材：容器の買取と五日分の補給',href:'board.html#supplies-water',selector:'#suppliesToggle'},
 {key:'route-map',version:'1-56',label:'作戦地図：塔制圧・左右割符・学院の門',href:'route-map.html#liurnia',selector:'#routePlanLink'},
 {key:'guide-lore',version:'1-43',label:'攻略手帳：考察を読む',href:'guide.html#lore-review',selector:'#guideToggle'},
 {key:'story-mio',version:'1-43',label:'名鑑：澪の掌編',href:'side-stories.html#mio-blank-in-the-record',selector:'#rosterToggle'},
 {key:'story-ren',version:'1-43',label:'名鑑：蓮の掌編',href:'side-stories.html#ren-unused-route',selector:'#rosterToggle'},
 {key:'art-yui',version:'1-44',label:'結衣の掌編・挿絵',href:'side-stories.html#yui-space-after-an-order',selector:'#rosterToggle'},
 {key:'art-hana',version:'1-44',label:'花の掌編・挿絵',href:'side-stories.html#hana-counting-the-way-home',selector:'#rosterToggle'},
-{key:'supplies-mount-care',version:'1-42',label:'資材：軍馬の世話',href:'index.html#supplies-horse',selector:'#suppliesToggle'}];
+{key:'supplies-mount-care',version:'1-42',label:'資材：軍馬の世話',href:'board.html#supplies-horse',selector:'#suppliesToggle'}];
 const memory=new Set();let list,button;const badges=[];
 function read(e){if(memory.has(e.key))return true;try{return localStorage.getItem('isekai:new-content:'+e.key)===e.version}catch{return false}}
 function mark(key){const e=entries.find(e=>e.key===key);if(!e)return;memory.add(key);try{localStorage.setItem('isekai:new-content:'+key,e.version)}catch{}render()}
@@ -87,7 +87,7 @@ function el(tag,text){const n=document.createElement(tag);if(text)n.textContent=
 function render(){if(!list)return;list.replaceChildren();for(const e of entries){const row=el('li'),a=el('a',e.label);a.href=e.href;a.addEventListener("click",()=>mark(e.key));row.append(a);if(!read(e)){const b=el('button','既読');b.type='button';b.setAttribute('aria-label',e.label+'を既読にする');b.onclick=()=>mark(e.key);row.append(b)}else row.append(el('small','既読'));list.append(row)}const count=entries.filter(e=>!read(e)).length;button.textContent='新着 '+count;for(const {node,selector}of badges)node.hidden=!entries.some(e=>e.selector===selector&&!read(e));window.dispatchEvent(new CustomEvent('isekai:new-content-change'))}
 function markHref(href){for(const e of entries.filter(e=>e.href===href))mark(e.key)}
 window.IsekaiNewContent={mark,markHref,isUnread:href=>entries.some(e=>e.href===href&&!read(e))};
-function destination(){const path=location.pathname.split('/').pop(),hash=location.hash.slice(1);if((path==='index.html'||!path)&&hash==='students'){const b=document.getElementById('rosterToggle');if(b){b.click();mark('roster-growth')}}if(path==='turn-1-47.html')mark('roundtable-archive');if((path==='index.html'||!path)&&hash.startsWith('student-')){const id=hash;if(document.querySelector('.character-library[open] .character-detail'))mark('reference-'+id)}if(path==='side-stories.html'){const e=entries.find(e=>e.href==='side-stories.html#'+hash);if(e&&document.querySelector('#storyContent h2'))mark(e.key)}if(path==='guide.html'&&hash==='lore-review'){const n=document.getElementById('lore-review');if(n&&!n.closest('[hidden]')){n.classList.add('new-content-target');mark('guide-lore')}}if(path==='guide.html'&&hash==='consequences'){const n=document.getElementById('consequences');if(n&&!n.hidden){n.classList.add('new-content-target');mark('guide-consequences')}}if(path==='route-map.html'&&(hash==='overview'||hash==='castle'||hash==='liurnia'))mark('route-map');if((path==='index.html'||!path)&&(hash==='supplies-horse'||hash==='supplies-water')){const toggle=document.getElementById('suppliesToggle');if(!toggle)return;const open=document.querySelector('dialog.supplies-dialog[open]');if(!open)toggle.click();const section=[...document.querySelectorAll('.supplies-dialog h3')].find(n=>n.textContent===(hash==='supplies-water'?'水':'軍馬の世話'));if(section){section.id=hash;section.classList.add('new-content-target');section.scrollIntoView({block:'start'});mark(hash==='supplies-water'?'supplies-water':'supplies-mount-care')}}}
+function destination(){const path=location.pathname.split('/').pop(),hash=location.hash.slice(1);if((path==='board.html'||path==='index.html'||!path)&&hash==='students'){const b=document.getElementById('rosterToggle');if(b){b.click();mark('roster-growth')}}if(path==='turn-1-47.html')mark('roundtable-archive');if((path==='board.html'||path==='index.html'||!path)&&hash.startsWith('student-')){const id=hash;if(document.querySelector('.character-library[open] .character-detail'))mark('reference-'+id)}if(path==='side-stories.html'){const e=entries.find(e=>e.href==='side-stories.html#'+hash);if(e&&document.querySelector('#storyContent h2'))mark(e.key)}if(path==='guide.html'&&hash==='lore-review'){const n=document.getElementById('lore-review');if(n&&!n.closest('[hidden]')){n.classList.add('new-content-target');mark('guide-lore')}}if(path==='guide.html'&&hash==='consequences'){const n=document.getElementById('consequences');if(n&&!n.hidden){n.classList.add('new-content-target');mark('guide-consequences')}}if(path==='route-map.html'&&(hash==='overview'||hash==='castle'||hash==='liurnia'))mark('route-map');if((path==='board.html'||path==='index.html'||!path)&&(hash==='supplies-horse'||hash==='supplies-water')){const toggle=document.getElementById('suppliesToggle');if(!toggle)return;const open=document.querySelector('dialog.supplies-dialog[open]');if(!open)toggle.click();const section=[...document.querySelectorAll('.supplies-dialog h3')].find(n=>n.textContent===(hash==='supplies-water'?'水':'軍馬の世話'));if(section){section.id=hash;section.classList.add('new-content-target');section.scrollIntoView({block:'start'});mark(hash==='supplies-water'?'supplies-water':'supplies-mount-care')}}}
 function mount(){const host=document.querySelector('body > header')||document.querySelector('header');if(!host)return;button=el('button');button.type='button';button.id='newContentToggle';button.setAttribute('aria-haspopup','dialog');const dialog=el('dialog');dialog.className='new-content-dialog';dialog.setAttribute('aria-labelledby','newContentTitle');const title=el('h2','新しく読めること');title.id='newContentTitle';const close=el('button','閉じる ×');close.type='button';close.onclick=()=>dialog.close();list=el('ul');dialog.append(close,title,list);document.body.append(dialog);host.append(button);button.onclick=()=>dialog.showModal();for(const selector of new Set(entries.map(e=>e.selector))){const target=document.querySelector(selector);if(!target)continue;const badge=el('span','NEW');badge.className='new-content-badge';target.append(badge);badges.push({node:badge,selector})}render();requestAnimationFrame(destination);window.addEventListener('hashchange',()=>requestAnimationFrame(destination));window.addEventListener('isekai:section-view',e=>mark(e.detail));window.addEventListener('storage',render);window.addEventListener('isekai:content-view',e=>markHref(e.detail))}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount,{once:true});else mount();
 })();
