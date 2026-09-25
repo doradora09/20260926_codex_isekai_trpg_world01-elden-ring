@@ -1,0 +1,19 @@
+(function(){
+'use strict';
+if(typeof CURRENT_SCENE==='undefined')return;
+const d=CURRENT_SCENE,head=document.querySelector('body > header');if(!head)return;
+const button=document.createElement('button');button.type='button';button.id='guideToggle';button.textContent='攻略・帰還';button.setAttribute('aria-haspopup','dialog');head.append(button);
+const modal=document.createElement('dialog');modal.className='journal guide-dialog';modal.setAttribute('aria-labelledby','guideTitle');
+function el(tag,value){const node=document.createElement(tag);if(value!=null)node.textContent=typeof value==='object'?JSON.stringify(value):String(value);return node;}
+function value(v){return v==null?'未設定':Array.isArray(v)?v.map(value).join('／'):typeof v==='object'?Object.entries(v).map(([k,x])=>k+'：'+value(x)).join('／'):String(v)}
+function section(title,items){const sec=el('section');sec.append(el('h3',title));if(Array.isArray(items)){const list=el('ul');for(const item of items)list.append(el('li',value(item)));sec.append(list);if(!items.length)sec.append(el('p','まだ記録されていません。'));}else sec.append(el('p',value(items)));modal.append(sec);return sec;}
+function open(){modal.replaceChildren();const close=el('button','閉じる ×');close.type='button';close.className='guide-close';close.onclick=()=>modal.close();modal.append(close);const title=el('h2','攻略・帰還の手帳');title.id='guideTitle';modal.append(title,el('p','原作の攻略情報と、この世界で確かめた事実を分けて記録します。ここを開いても物語や判定は進みません。'));
+const dedicated=el('a','専用手帳を開く →');dedicated.href='guide.html';dedicated.className='guide-dedicated';modal.append(dedicated);
+const knowledge=d.knowledgeState;if(knowledge){section('情報の共有状況',knowledge.disclosureStatus||'未記録');section('先生だけの情報',knowledge.teacherOnly||[]);section('クラスに共有済み',knowledge.classShared||[]);section('プレイヤー向け表示について',knowledge.source||'この画面に表示される情報が全NPCに伝わっているとは限りません。');}
+const ability=d.guideAbility||{},teacher=d.teacher||{},details=teacher.uniqueSkillDetails||{};
+section(ability.name||teacher.uniqueSkill||'先生の固有能力',details.effect||'能力の詳細はまだ記録されていません。');if(details.source)section('能力の由来',details.source);section('能力の限界',details.limits||'原作とこの世界の一致は保証されません。');
+const sec=el('section');sec.append(el('h3','原作の攻略情報（質問済みの範囲）'));modal.append(sec);for(const fact of ability.originalGameFacts||[]){const p=el('p',fact.text);if(fact.url&&/^https?:\/\//i.test(fact.url)){p.append(document.createTextNode(' '));const a=el('a',fact.title||'出典');a.href=fact.url;a.target='_blank';a.rel='noopener noreferrer';p.append(a)}sec.append(p)}if(!ability.originalGameFacts?.length)sec.append(el('p','まだ記録されていません。'));
+section('現地で確認したこと',ability.observed||[]);section('未検証・一致するとは限らないこと',ability.unverified||[]);
+const victory=d.victoryCondition||{};const conditions=el('section');conditions.append(el('h3','勝利と元の世界への帰還'));for(const [k,label]of Object.entries({objective:'クリア目標',eligible:'帰還対象',teacher:'先生の扱い',scope:'適用範囲',notEnough:'これだけでは帰還できない',source:'条件の出典',communicationLimits:'伝達・共有の限界'})){conditions.append(el('h4',label),el('p',value(victory[k])))}modal.append(conditions);modal.showModal();}
+button.onclick=open;document.body.append(modal);const style=el('style');style.textContent='.guide-dialog{width:min(780px,94vw);max-height:90dvh;overflow:auto;box-sizing:border-box}.guide-dialog section{padding:12px 0;border-top:1px solid #344150}.guide-dialog h3{font-size:17px;color:#dfc18f}.guide-dialog h4{font-size:13px;color:#aec6d2;margin:12px 0 4px}.guide-dialog p,.guide-dialog li{font-size:14px;line-height:1.85;white-space:pre-line;overflow-wrap:anywhere}.guide-dialog a{color:#9ed7e8}.guide-dedicated{display:inline-block;margin:4px 0 16px;padding:8px 12px;border:1px solid #496275;border-radius:6px;text-decoration:none}.guide-close{position:sticky;top:0;display:block;margin-left:auto;z-index:1}';document.head.append(style);
+})();

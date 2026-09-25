@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>次の道を、開く。｜作戦会議</title>
+<link rel="stylesheet" href="route-map.css"><link rel="stylesheet" href="new-content.css">
+<script src="live-version.js" defer></script>
+<script src="live-refresh.js" defer></script>
+<script src="route-map-data.js" defer></script>
+<script src="route-map.js" defer></script><script src="new-content.js" defer></script>
+</head>
+<body>
+<header class="route-header">
+ <div class="heading"><a class="back-link" href="index.html">← 本編</a><div><p class="eyebrow">作戦会議用の概略図</p><h1>次の道を、開く。</h1></div></div>
+ <p class="campaign-status" id="campaignStatus"><span>DAY 30</span><span>残り70日</span><span>全33人</span></p>
+</header>
+<nav class="map-tools" aria-label="地図の表示">
+ <div class="view-switch" role="group" aria-label="作戦の絞り込み"><button type="button" data-view="all" aria-pressed="true">全体</button><button type="button" data-view="a" aria-pressed="false">A隊候補</button><button type="button" data-view="b" aria-pressed="false">B隊候補</button><button type="button" data-view="c" aria-pressed="false">物資C隊</button><button type="button" data-view="rescue" aria-pressed="false">帰還・救援</button></div>
+ <div class="map-options"><label><input type="checkbox" id="showForeknowledge">先読みの地名</label><button type="button" id="resetView">表示を戻す</button></div>
+<a href="world-map.html">全体地図・祝福 →</a></nav>
+<main class="route-workspace">
+ <section class="map-column" aria-label="道と地点の概略図">
+  <div id="mapPane" tabindex="0" aria-label="地図。地点を選ぶと右側に詳細を表示">
+   <div id="routeCanvas"><svg viewBox="0 0 1000 690" preserveAspectRatio="xMidYMid meet" role="img" aria-label="作戦会議の概略地図"></svg></div>
+  </div>
+  <ul class="map-legend" aria-label="地図の凡例"><li><i class="legend observed"></i>現地確認</li><li><i class="legend memory"></i>原作先読み</li><li><i class="legend planned"></i>計画</li><li><i class="legend reserve"></i>未解放予備</li></ul>
+ </section>
+ <aside id="routeDetail" tabindex="0" aria-label="選択地点の詳細"><p class="eyebrow">地点の記録</p><h2>行き先を選ぶ</h2><p>地図の地点から、分かっていることと次に確かめることを確認できます。</p></aside>
+</main>
+<section id="teamSummary" aria-label="編成候補"></section>
+<footer class="route-footer"><span>読むだけで日数・資材は進みません。</span><span id="refreshStatus">30秒ごとに更新を確認</span></footer>
+</body>
+</html>
