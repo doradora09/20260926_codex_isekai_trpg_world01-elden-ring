@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#0b1118">
-<meta name="description" content="先生一人、生徒三十二人。期限は百日。ゲーム知識で異世界転生してみた — 第1世界・エルデンリング編、約1分のオープニング。">
+<meta name="description" content="先生一人、生徒三十二人。まさかのエルデンリング。期限は百日、目標は全員生還。ゲーム知識で異世界転生してみた — 第1世界、約1分のオープニング。">
 <title>旅のはじまり｜異世界転移録・オープニング</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3 28 16 16 29 4 16Z' fill='%230b1118' stroke='%23d5b876'/%3E%3C/svg%3E">
 <style>
@@ -16,6 +16,7 @@
 .controls{position:absolute;inset:auto 0 0;z-index:10;padding:12px clamp(20px,4vw,64px) 18px;background:linear-gradient(transparent,#090f18ee 30%);opacity:1}.control-row{display:flex;align-items:center;gap:14px}.control-row button{font-size:12px;min-height:38px;padding:8px 13px}.control-row .spacer{flex:1}.time{font-size:11px;font-variant-numeric:tabular-nums;color:#c1c5c5;white-space:nowrap}#progress{display:block;width:100%;height:18px;margin:0 0 8px;accent-color:var(--gold);cursor:pointer}#motionLabel{display:flex;align-items:center;gap:5px;font-size:11px;color:#c3c6c6;white-space:nowrap}input[type=checkbox]{accent-color:var(--gold)}.chapter-dots{display:flex;gap:6px;align-items:center}.chapter-dots button{padding:10px 4px;border:0;background:transparent;min-height:32px;width:22px;position:relative}.control-row .chapter-dots button{width:28px;padding:10px 5px}.chapter-dots button:after{content:"";display:block;height:3px;background:#e3d1b047;width:100%}.chapter-dots button[aria-current=true]:after{background:var(--gold)}.initial .controls{display:none}#status{position:absolute;left:28px;bottom:118px;font-size:12px;z-index:12;color:#ded5c0}noscript{position:relative;z-index:20;padding:24px;background:#111a24;display:block}noscript a{color:var(--gold)}
 @media(max-width:700px){#experience{min-height:560px}.topbar{font-size:10px;padding:17px 20px;min-height:56px}.poster{padding:90px 30px 110px;background-position:62% 50%}.poster h1{font-size:clamp(31px,7.8vw,47px)}.poster .eyebrow{font-size:10px;margin-bottom:18px}.poster .lead{font-size:13px}.poster:after,.stage:after{inset:66px 12px 117px}.caption{left:28px;right:28px;bottom:180px}.caption h2{font-size:clamp(27px,6.5vw,40px)}.caption p{font-size:13px}.center .caption{bottom:31%}.center .caption h2{font-size:40px}.title-scene .caption{bottom:29%}.title-scene .caption h2{font-size:clamp(28px,6.5vw,40px)}.title-scene .caption p{font-size:11px}.controls{padding:12px 18px 15px}.control-row{gap:9px;flex-wrap:wrap}.control-row .spacer{display:none}.chapter-dots{order:5;flex:1}.time{margin-right:auto}.control-row button{font-size:11px;padding:8px 10px}#motionLabel{font-size:10px}.end-actions{gap:16px}.end-actions .primary{padding:13px 18px;font-size:12px}.scene img{object-position:var(--mobile-focus,var(--focus,50% 50%))}}
 @media(max-height:560px) and (min-width:701px){#experience{min-height:450px}.topbar{padding-top:14px}.poster{padding-top:65px;padding-bottom:65px}.poster h1{font-size:35px;line-height:1.4}.poster .lead{margin-bottom:14px}.poster .eyebrow,.poster .with{margin-bottom:10px}.poster .note{margin-top:10px}.caption{bottom:120px}.caption h2{font-size:34px;margin-bottom:8px}.center .caption,.title-scene .caption{bottom:25%}.center .caption h2{font-size:42px}.title-scene .caption h2{font-size:34px}}
+@media(max-width:700px){.reveal-scene .caption h2{font-size:clamp(28px,7.2vw,40px)}}
 @media(prefers-reduced-motion:reduce){.scene{transition:none}.scene img{will-change:auto}}.reduced .scene{transition:none}.reduced .scene img{will-change:auto}
 </style>
 </head>
@@ -27,9 +28,9 @@
 <p class="eyebrow">A CLASS OF THIRTY-TWO · A TEACHER · ANOTHER WORLD</p>
 <h1 id="openingTitle">ゲーム知識で<br>異世界転生してみた</h1>
 <p class="with">with Codex</p>
-<p class="lead">先生一人、生徒三十二人。期限は百日。<br>知っているはずの世界で、知らない旅が始まる。</p>
+<p class="lead">先生一人、生徒三十二人。期限は百日。<br>目標は、全員生還。</p>
 <div class="actions"><button id="start" class="primary">オープニングを再生 <span aria-hidden="true">▶</span></button><a class="secondary" href="reader.html#scene-1-2">すぐに物語を読む →</a></div>
-<p class="note">約1分・音声なし ／ 結末のネタバレはありません</p>
+<p class="note">約1分・音声なし ／ 物語の舞台と目標を紹介します</p>
 </section>
 <div id="controls" class="controls" aria-label="再生コントロール" hidden>
 <label class="visually-hidden" for="progress">再生位置（秒）</label><input type="range" id="progress" min="0" max="58" step="0.1" value="0" aria-valuetext="0秒 / 58秒">
@@ -47,10 +48,10 @@
     {duration:6,name:'いつもの教室',type:'center',art:classroom,kicker:'BEFORE THE FIRST DAY',title:'いつもと同じ、<br>一日が続くはずだった。',text:'あの教室の、その先に。'},
     {duration:7,name:'境界の女神',image:'assets/lyucia-turn-1-2.webp',alt:'光の門の前に現れた境界の女神リュシアと、彼女を見上げる生徒たち',focus:'50% 0%',mobile:'51% 32%',kicker:'THE GODDESS AT THE BOUNDARY',title:'帰り道は、<br>まだ見えない。',text:'境界の女神リュシアとの出会い。'},
     {duration:7,name:'三十三人',image:'assets/reader/prologue-1-5-v2.webp',alt:'未知の土地で集まった制服姿の生徒たちと先生',focus:'50% 44%',mobile:'64% 45%',kicker:'ONE TEACHER · THIRTY-TWO STUDENTS',title:'先生一人。<br>生徒三十二人。',text:'連れて帰りたい顔には、みんな名前がある。'},
-    {duration:8,name:'百日の期限',type:'center',image:'assets/elden-limgrave-turn-1-4.webp',alt:'狭間の地の草原と黄金樹を見渡す生徒たち',focus:'50% 40%',kicker:'WORLD 01 / ELDEN RING',title:'期限は、百日。',text:'ここは、画面の向こうにあった世界。'},
+    {duration:8,name:'まさかの世界',type:'center reveal-scene',image:'assets/elden-limgrave-turn-1-4.webp',alt:'狭間の地の草原と黄金樹を見渡す生徒たち',focus:'50% 40%',kicker:'WORLD 01 / ELDEN RING',title:'まさかの、<br>エルデンリング。',text:'ここは、画面の向こうにあった世界。残された時間は、百日。'},
     {duration:7,name:'赤い月',type:'red',image:'assets/red-moon-vigil-turn-1-38.webp',alt:'赤い月の下、教会で身を寄せ合う先生と生徒たち',focus:'50% 28%',mobile:'51% 28%',kicker:'WHEN THE RED MOON RISES',title:'知っている攻略が、<br>通じない夜もある。',text:'赤い月が、いつもの法則を変えていく。'},
     {duration:8,name:'生きるために',image:'assets/camp-turn-1-11.webp',alt:'廃教会で記録を取り、石を積み、拠点を整える生徒たち',focus:'50% 55%',mobile:'62% 50%',kicker:'BUILD · EXPLORE · STAND TOGETHER',title:'戦う。探す。<br>明日の居場所をつくる。',text:'剣を持つ手も、水を運ぶ手も、この旅を進める。'},
-    {duration:7,name:'先生の決意',image:'assets/teacher-turn-1-8.webp',alt:'攻略情報を見ながら次の行動を考える先生と生徒たち',focus:'50% 38%',mobile:'49% 35%',kicker:'KNOWLEDGE IS ONLY THE BEGINNING',title:'知識を、選択に。<br>選択を、帰り道に。',text:'正解の見えない世界で、先生は次の一手を考える。'},
+    {duration:7,name:'目標は全員生還',image:'assets/teacher-turn-1-8.webp',alt:'攻略情報を見ながら次の行動を考える先生と生徒たち',focus:'50% 38%',mobile:'49% 35%',kicker:'OUR GOAL',title:'目標は、<br>全員生還。',text:'知っている攻略を、生きて帰るための一手に。'},
     {duration:8,name:'旅のはじまり',type:'center title-scene',image:'assets/elden-limgrave-turn-1-4.webp',alt:'黄金樹が輝く草原へ踏み出す生徒たち',focus:'50% 42%',kicker:'第一章 ── エルデンリング編',title:'ゲーム知識で<br>異世界転生してみた',text:'with Codex',end:true}
   ];
   const $ = id => document.getElementById(id);
