@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#0b1118">
 <meta name="description" content="いつもの教室が異世界へ。先生と32人の生徒、まさかのエルデンリング。期限100日、目標は全員生還。30秒の映画予告風オープニング。">
-<title>30秒予告｜ゲーム知識で異世界転生してみた</title>
+<title>30秒予告｜ゲーム知識で異世界転移してみた</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 3 28 16 16 29 4 16Z' fill='%230b1118' stroke='%23d5b876'/%3E%3C/svg%3E">
 <style>
 
@@ -20,6 +20,8 @@
 @media(prefers-reduced-motion:reduce){.visual{will-change:auto}}.reduced .visual{will-change:auto}
 .briefing .caption p{font-size:clamp(16px,1.7vw,23px);line-height:1.8;letter-spacing:.06em;color:#fff;text-shadow:0 2px 8px #000,0 2px 24px #000;margin:18px auto 0;text-wrap:balance;max-width:38em}
 @media(max-width:700px){.briefing .caption p{font-size:14px;line-height:1.85;letter-spacing:.025em;max-width:24em}}
+.sudden{background:#000}.knowledge .caption h2{font-size:clamp(30px,6.4vw,100px);letter-spacing:.03em}
+@media(max-width:700px){.knowledge .caption h2{font-size:clamp(27px,7.4vw,42px);letter-spacing:.015em}}
 </style>
 </head>
 <body>
@@ -28,7 +30,7 @@
 <div id="stage" class="stage" aria-label="オープニングの場面"></div>
 <section id="poster" class="poster" aria-labelledby="openingTitle">
 <p class="eyebrow">30 SECOND TRAILER</p>
-<h1 id="openingTitle">ゲーム知識で<br>異世界転生してみた</h1>
+<h1 id="openingTitle">ゲーム知識で<br>異世界転移してみた</h1>
 <p class="with">with Codex</p>
 <p class="lead">いつもの教室が、異世界へ。<br>先生一人と生徒三十二人の、帰り道を探す冒険。</p>
 <div class="actions"><button id="start" class="primary">30秒の予告を再生 <span aria-hidden="true">▶</span></button><a class="secondary" href="reader.html#scene-1-2">すぐに物語を読む →</a></div>
@@ -65,7 +67,13 @@
     ]
   },
   {
-    "duration": 2.2,
+    "duration": 1,
+    "name": "突然の",
+    "type": "card sudden",
+    "title": "突然の、"
+  },
+  {
+    "duration": 1.8,
     "name": "突然の異世界転移",
     "chapter": true,
     "type": "center reveal briefing",
@@ -73,7 +81,7 @@
     "alt": "教室が青白い光に包まれ、生徒をかばおうと腕を伸ばす先生",
     "focus": "58% 35%",
     "mobile": "60% 35%",
-    "title": "突然の、<br>異世界転移。",
+    "title": "異世界転移。",
     "motion": [
       1.02,
       1.1,
@@ -88,7 +96,7 @@
     "type": "blackout"
   },
   {
-    "duration": 3,
+    "duration": 2.7,
     "name": "まさかのエルデンリング",
     "chapter": true,
     "type": "center reveal briefing",
@@ -105,7 +113,7 @@
     "text": "教室にいた33人が、ゲームの世界へ。"
   },
   {
-    "duration": 1.3,
+    "duration": 1,
     "name": "境界の女神",
     "image": "assets/lyucia-turn-1-2.webp",
     "alt": "光の門の前に立つ境界の女神リュシア",
@@ -251,13 +259,13 @@
   },
   {
     "duration": 2.3,
-    "name": "先生の決意",
+    "name": "帰れるのか",
     "type": "dialogue",
     "image": "assets/teacher-turn-1-8.webp",
     "alt": "生徒たちのそばで攻略情報を見ながら次の一手を考える先生",
     "focus": "50% 35%",
     "mobile": "49% 30%",
-    "title": "「帰るぞ。みんなで。」",
+    "title": "「帰れるのか……？」",
     "motion": [
       1.01,
       1.075,
@@ -266,24 +274,25 @@
     ]
   },
   {
-    "duration": 0.3,
-    "name": "決意の前の暗転",
-    "type": "blackout"
+    "duration": 1.8,
+    "name": "ゲーム知識で",
+    "type": "card knowledge",
+    "title": "<strong>ゲーム知識で――！</strong>"
   },
   {
-    "duration": 3,
+    "duration": 2.7,
     "name": "目標は全員生還",
     "chapter": true,
     "type": "card",
     "title": "目標は、<br><strong>全員生還。</strong>"
   },
   {
-    "duration": 3.2,
+    "duration": 2,
     "name": "旅のはじまり",
     "chapter": true,
     "type": "card title-scene",
     "kicker": "第1世界 ── エルデンリング編",
-    "title": "ゲーム知識で<br>異世界転生してみた",
+    "title": "ゲーム知識で<br>異世界転移してみた",
     "text": "with Codex",
     "end": true
   }
