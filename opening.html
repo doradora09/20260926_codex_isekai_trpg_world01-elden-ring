@@ -18,6 +18,8 @@
 @media(max-width:700px){#experience{min-height:560px}.topbar{padding:16px 18px;font-size:10px;min-height:55px}.brand{gap:8px}.poster{padding:84px 28px 105px;background-position:62% 40%}.poster h1{font-size:clamp(30px,7.6vw,47px)}.poster .eyebrow{font-size:10px}.poster .lead{font-size:13px}.scene img{object-position:var(--mobile-focus,var(--focus,50% 50%))}.caption{left:24px;right:24px;bottom:180px}.caption h2{font-size:clamp(27px,6.8vw,43px)}.dialogue .caption h2{font-size:clamp(25px,6.5vw,38px)}.caption p{font-size:12px}.center .caption,.card .caption,.impact .caption{left:18px;right:18px;top:46%}.reveal .caption h2{font-size:clamp(28px,7.1vw,48px)}.card h2{font-size:clamp(39px,10.5vw,70px)}.card .caption p{font-size:11px;letter-spacing:.09em}.impact .caption h2{font-size:clamp(59px,17vw,105px)}.red .caption h2{font-size:clamp(31px,7.8vw,52px)}.title-scene .caption{inset:44% 22px auto}.title-scene .caption h2{font-size:clamp(28px,7.1vw,42px)}.title-scene .caption p{font-size:11px}.end-actions{gap:16px;margin-top:22px}.end-actions .primary{font-size:12px;padding:13px 18px}.controls{padding:10px 18px 13px}.control-row{gap:8px;flex-wrap:wrap}.control-row .spacer{display:none}.control-row button{padding:7px 9px;font-size:10px}.time{margin-right:auto}.chapter-dots{order:5;flex-basis:100%;justify-content:center}.control-row .chapter-dots button{width:27px}#motionLabel{font-size:9px}}
 @media(max-height:560px) and (min-width:701px){#experience{min-height:430px}.topbar{padding-top:12px}.poster{padding-top:60px;padding-bottom:60px}.poster h1{font-size:34px}.poster .lead{margin-bottom:12px}.poster .with{margin:8px 0 12px}.poster .eyebrow{margin-bottom:12px}.caption{bottom:112px}.caption h2,.dialogue .caption h2{font-size:32px}.reveal .caption h2{font-size:46px}.card h2{font-size:65px}.impact .caption h2{font-size:78px}.title-scene .caption{top:44%}.title-scene .caption h2{font-size:32px}.end-actions{margin-top:13px}.primary{padding:11px 20px;min-height:42px}}
 @media(prefers-reduced-motion:reduce){.visual{will-change:auto}}.reduced .visual{will-change:auto}
+.briefing .caption p{font-size:clamp(16px,1.7vw,23px);line-height:1.8;letter-spacing:.06em;color:#fff;text-shadow:0 2px 8px #000,0 2px 24px #000;margin:18px auto 0;text-wrap:balance;max-width:38em}
+@media(max-width:700px){.briefing .caption p{font-size:14px;line-height:1.85;letter-spacing:.025em;max-width:24em}}
 </style>
 </head>
 <body>
@@ -88,7 +90,7 @@
     "duration": 3,
     "name": "まさかのエルデンリング",
     "chapter": true,
-    "type": "center reveal",
+    "type": "center reveal briefing",
     "image": "assets/elden-limgrave-turn-1-4.webp",
     "alt": "転移した先に広がるリムグレイブの草原と巨大な黄金樹",
     "focus": "50% 40%",
@@ -98,7 +100,8 @@
       1.0,
       0,
       0
-    ]
+    ],
+    "text": "教室にいた33人が、ゲームの世界へ。"
   },
   {
     "duration": 1.3,
@@ -115,12 +118,12 @@
     ]
   },
   {
-    "duration": 2,
+    "duration": 2.5,
     "name": "期限は百日",
     "chapter": true,
-    "type": "card",
+    "type": "card briefing",
     "title": "期限、<em>100</em>日。",
-    "text": "先生1人。生徒32人。"
+    "text": "元の世界へ帰る条件は、この世界のクリア。"
   },
   {
     "duration": 1.3,
@@ -274,7 +277,7 @@
     "title": "目標は、<br><strong>全員生還。</strong>"
   },
   {
-    "duration": 4.2,
+    "duration": 3.7,
     "name": "旅のはじまり",
     "chapter": true,
     "type": "card title-scene",
