@@ -2,6 +2,16 @@
   'use strict';
   const data = window.STORY_READER_DATA;
   if (!data || window.READER_CHAPTERS) return;
+  // The archived day counter began later. In the reading edition, arrival and
+  // the first church visit belong to DAY1; the classroom and goddess remain prologue.
+  for (const scene of data.scenes) {
+    if (scene.startDay == null && scene.turn >= 4 && scene.turn <= 18) {
+      scene.startDay = scene.endDay = 1;
+      scene.dayLabel = 'DAY 1';
+    }
+  }
+  data.byDay[1] = {id: '1-4', covered: true};
+  data.firstDayId = '1-4';
   const parts = [
     {
       id: '1-4-chapter', before: '1-5', source: '1-4', number: '第一章',

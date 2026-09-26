@@ -32,16 +32,16 @@ if (/^#(?:students|student-[^/]+|supplies-[^/]+)$/.test(location.hash)) {
 </head>
 <body>
 <main id="experience" class="initial" aria-label="異世界転移録 オープニング">
-<header class="topbar"><span class="brand">異世界転移録 <span aria-hidden="true">/</span> WORLD 01</span><a href="reader.html#day-1">DAY1から読む →</a></header>
+<header class="topbar"><span class="brand">異世界転移録 <span aria-hidden="true">/</span> WORLD 01</span><a href="reader.html#scene-1-1">はじめから読む →</a></header>
 <div id="stage" class="stage" aria-label="オープニングの場面"></div>
 <section id="poster" class="poster" aria-labelledby="openingTitle">
 <p class="eyebrow">30 SECOND TRAILER</p>
 <h1 id="openingTitle">ゲーム知識で<br>異世界転移してみた</h1>
 <p class="with">with Codex</p>
 <p class="lead">いつもの教室が、異世界へ。<br>先生一人と生徒三十二人の、帰り道を探す冒険。</p>
-<div class="actions"><button id="start" class="primary">30秒の予告を再生 <span aria-hidden="true">▶</span></button><a class="secondary" href="reader.html#day-1">DAY1から読む →</a></div>
+<div class="actions"><button id="start" class="primary">30秒の予告を再生 <span aria-hidden="true">▶</span></button><a class="secondary" href="reader.html#scene-1-1">はじめから読む →</a></div>
 <p class="note">30秒・音声なし ／ 教室から始まる、第1世界の冒険</p>
-<nav class="archive-links" aria-label="その他の入口"><a href="reader.html#scene-1-2">序章から読む</a><a href="board.html">最新の盤面を確認する →</a></nav>
+<nav class="archive-links" aria-label="その他の入口"><a href="board.html">最新の盤面を確認する →</a></nav>
 </section>
 <div id="controls" class="controls" aria-label="再生コントロール" hidden>
 <label class="visually-hidden" for="progress">再生位置（秒）</label><input type="range" id="progress" min="0" max="30" step="0.1" value="0" aria-valuetext="0秒 / 30秒">
@@ -49,7 +49,7 @@ if (/^#(?:students|student-[^/]+|supplies-[^/]+)$/.test(location.hash)) {
 </div>
 <p id="status" role="status" hidden></p>
 <p id="announcement" class="visually-hidden" aria-live="polite"></p>
-<noscript>オープニングの再生にはJavaScriptが必要です。<a href="reader.html#day-1">DAY1から物語を読む →</a></noscript>
+<noscript>オープニングの再生にはJavaScriptが必要です。<a href="reader.html#scene-1-1">はじめから物語を読む →</a></noscript>
 </main>
 <script>
 (() => {
@@ -324,7 +324,7 @@ if (/^#(?:students|student-[^/]+|supplies-[^/]+)$/.test(location.hash)) {
         artwork=`<div class="visual"><svg viewBox="${x} ${y} ${w} ${h}" preserveAspectRatio="xMidYMid slice" role="img" aria-label="${scene.alt}"><image href="${scene.image}" width="${fullW}" height="${fullH}"/></svg></div>`;
       }else artwork=`<div class="visual"><img src="${scene.image}" alt="${scene.alt}" decoding="async"></div>`;
     }
-    const caption=scene.title?`<div class="caption">${scene.kicker?`<span class="eyebrow">${scene.kicker}</span>`:''}<h2>${scene.title}</h2>${scene.text?`<p>${scene.text}</p>`:''}${scene.end?'<div class="actions end-actions"><a class="primary" href="reader.html#day-1">DAY1から読む <span aria-hidden="true">→</span></a><button id="replay" class="secondary">もう一度見る</button></div><p class="final-note">人間の選択と、Codexの進行で紡いだ冒険。</p><nav class="archive-links" aria-label="その他の入口"><a href="board.html">最新の盤面を確認する →</a></nav>':''}</div>`:'';
+    const caption=scene.title?`<div class="caption">${scene.kicker?`<span class="eyebrow">${scene.kicker}</span>`:''}<h2>${scene.title}</h2>${scene.text?`<p>${scene.text}</p>`:''}${scene.end?'<div class="actions end-actions"><a class="primary" href="reader.html#scene-1-1">はじめから読む <span aria-hidden="true">→</span></a><button id="replay" class="secondary">もう一度見る</button></div><p class="final-note">人間の選択と、Codexの進行で紡いだ冒険。</p><nav class="archive-links" aria-label="その他の入口"><a href="board.html">最新の盤面を確認する →</a></nav>':''}</div>`:'';
     section.innerHTML=artwork+'<div class="shade"></div>'+caption;
     stage.append(section);scene.element=section;scene.visual=section.querySelector('.visual');
     if(scene.chapter){
