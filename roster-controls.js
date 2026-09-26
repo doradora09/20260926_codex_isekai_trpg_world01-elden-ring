@@ -5,7 +5,7 @@ if (!trigger || typeof CURRENT_SCENE === 'undefined') return;
 const scene = CURRENT_SCENE, students = scene.loadouts || [];
 const profiles = typeof CHARACTER_PROFILES !== 'undefined' ? CHARACTER_PROFILES.students || [] : [];
 const normalize = value => String(value || '').replace(/[\s　]/g, '').toLowerCase();
-const sideStoriesByName={"橋本翼":"tsubasa-six-returned","石田陸": "riku-room-for-a-blade", "松本誠": "makoto-weight-of-one-stone", "小野美咲": "misaki-a-turn-she-remembers", "長谷川楓": "kaede-room-for-another-hand", "橘陽太": "yota-saying-it-hurts", "白瀬澪": "mio-blank-in-the-record", "三上蓮": "ren-unused-route", "朝倉結衣": "yui-space-after-an-order", "水野花": "hana-counting-the-way-home", "久我大地": "daichi-say-it-hurts"}; // Latest authored story per student.
+const sideStoriesByName=Object.fromEntries(profiles.filter(p=>p.sideStories?.length).map(p=>[normalize(p.name),p.sideStories[0].id]));
 const profileFor = student => profiles.find(p => normalize(p.name) === normalize(student.name)) || {};
 const readingFor = student => (window.STUDENT_READINGS || []).find(p => p.name === normalize(student.name))?.reading || '';
 const normalizeSearch = value => normalize(value).replace(/[ァ-ヶ]/g, c => String.fromCharCode(c.charCodeAt(0)-0x60));
@@ -20,6 +20,7 @@ const heading = element('div'); heading.append(element('span','character-eyebrow
 const title = element('h2', '', '生徒名鑑と装備'); title.id='character-library-title'; heading.append(title);if(scene.challenge?.status==='completed')heading.append(element('p','character-note','33人全員帰還。レベル・能力・装備・残数は異世界での最終記録です。現実世界で戦闘能力や武器を使えるという意味ではありません。'));
 const close = element('button', 'character-close', '閉じる ×'); close.type='button'; close.onclick=()=>modal.close(); header.append(heading,close);
 const teacher=element('details','character-teacher');teacher.append(element('summary','','先生の現在地・装備・成長記録'));
+const teacherStory=element('a','character-story-link','先生の物語を読む →');teacherStory.href='side-stories.html#teacher-name-not-order';teacher.append(teacherStory);
 const t=scene.teacher || {};if(t.talismans?.length)teacher.append(element('p','', '装着タリスマン：'+t.talismans.filter(v=>v.equipped).map(v=>`${v.name}（基本枠${v.slot??1}）／${v.effect||''}`).join('／')));teacher.append(element('p','', `${t.name || '私'} ／ ${t.age || 42}歳 ／ ${t.job || '未設定'} ／ Lv.${t.level ?? '未設定'} ／ ${text(t.gear)}`),element('p','',Object.entries(t.stats || {}).map(([k,v])=>`${k} ${v}`).join(' ／ ')),element('p','',`固有スキル：${text(t.uniqueSkill)} ／ 特殊アイテム：${text(t.specialItem)} ／ 好きなゲーム：${text(t.favoriteGame)}`));
 if(t.flasks)teacher.append(element('p','',`携行聖杯瓶：赤 ${t.flasks.crimsonRemaining}/${t.flasks.crimsonAllocated} ／ 青 ${t.flasks.ceruleanRemaining}/${t.flasks.ceruleanAllocated}（祝福休息で補充）`));
 teacher.append(element('p','character-equipment-status',durabilitySummary(t)));equipmentDurability(teacher,t);
