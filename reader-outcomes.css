@@ -1,0 +1,101 @@
+/* End-of-prose results stay in normal flow, below the final quotation. */
+.chapter-outcome[hidden] { display: none !important; }
+.chapter-outcome {
+  --outcome-color: #d8bd7e;
+  margin: 2rem 0 1.6rem;
+  padding: 1.25rem 0 .75rem;
+  border-top: 1px solid #cfb57733;
+  color: #eee8db;
+}
+.chapter-outcome[data-kind="retreat"] { --outcome-color: #a9bdcd; }
+.chapter-outcome[data-kind="survived"] { --outcome-color: #d7c18e; }
+.chapter-outcome[data-kind="advance"] { --outcome-color: #a6cec2; }
+.chapter-outcome[data-kind="home"] { --outcome-color: #e5cf93; }
+.chapter-outcome .outcome-row { display: flex; align-items: center; gap: 1.2rem; }
+.chapter-outcome .outcome-stamp {
+  flex: 0 0 auto;
+  border: 3px double currentColor;
+  border-radius: 3px;
+  padding: .45rem .75rem;
+  color: var(--outcome-color);
+  font-size: clamp(1rem, 1.5vw, 1.3rem);
+  line-height: 1.4;
+  letter-spacing: .12em;
+  transform: rotate(-3deg);
+}
+.chapter-outcome .outcome-detail { min-width: 0; }
+.chapter-outcome .outcome-subject { margin: 0 0 .3rem; font-weight: 700; line-height: 1.6; }
+.chapter-outcome .outcome-summary { margin: 0; color: #b8c0c4; font-size: .88rem; line-height: 1.8; }
+.chapter-outcome .outcome-event { margin: 0 0 .9rem; color: #e09c9d; font-size: .8rem; font-weight: 700; letter-spacing: .12em; }
+@media (max-width: 520px) {
+  .chapter-outcome .outcome-row { flex-wrap: wrap; gap: .8rem; }
+  .chapter-outcome .outcome-detail { flex-basis: 100%; }
+}
+/* Encounter atmosphere is independent of victory or defeat. */
+#chapter[data-encounter="boss"] .reading-frame {
+  background: radial-gradient(ellipse at 50% 28%, #452d2d99, #211c26b3 70%);
+}
+#chapter[data-encounter="boss"] .text-panel { background-color: #291f28f0; border-color: #8d655b; }
+#chapter[data-encounter="redmoon"] .reading-frame { background: radial-gradient(ellipse at 50% 28%, #681f3299, #241923b3 70%); }
+#chapter[data-encounter="redmoon"] .text-panel { background-color: #301d27f0; border-color: #a65767; }
+#chapter[data-encounter="firstcombat"] .reading-frame { background: radial-gradient(ellipse at 50% 28%, #65503788, #231f29d9 75%); }
+#chapter[data-encounter="firstcombat"] .text-panel { background-color: #30282bf5; border-color: #ad8a62; }
+#chapter[data-encounter="loss"] .reading-frame { background: radial-gradient(ellipse at 50% 28%, #491c2a99, #160f19e6 75%); }
+#chapter[data-encounter="loss"] .text-panel { background-color: #23131ff5; border-color: #885267; }
+#chapter[data-encounter="embers"] .reading-frame { background: radial-gradient(ellipse at 50% 70%, #70402b77, #211b21e6 75%); }
+#chapter[data-encounter="embers"] .text-panel { background-color: #2b211df5; border-color: #b38160; }
+#chapter[data-encounter="council"] .reading-frame { background: radial-gradient(ellipse at 50% 28%, #4b49316b, #182128dd 75%); }
+#chapter[data-encounter="council"] .text-panel { background-color: #272a23f5; border-color: #8a8565; }
+.battle-result-overlay[hidden] { display: none !important; }
+.battle-result-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  display: grid; align-items: center; width: 100%; height: 100%;
+  padding: 0; border: 0; border-radius: 0;
+  background: #08090d50; color: #efd08b; cursor: pointer;
+  text-align: center; font-family: inherit;
+}
+.battle-result-overlay[data-kind="retreat"] { color: #c4d3e5; }
+.battle-result-band {
+  display: flex; flex-direction: column; align-items: center; gap: .6rem;
+  padding: 2rem 1rem;
+  background: linear-gradient(transparent, #080b12e8 22%, #080b12e8 78%, transparent);
+  animation: battle-result-enter .55s ease-out both;
+}
+.battle-result-title {
+  font-family: "Yu Mincho", "Hiragino Mincho ProN", serif;
+  font-size: clamp(42px, 8vw, 108px); font-weight: 600; line-height: 1.4;
+  letter-spacing: .18em; padding-left: .18em; text-shadow: 0 0 28px #bc8c3840;
+}
+.battle-result-subject { font-size: clamp(15px, 2vw, 23px); color: #e4dfd5; letter-spacing: .08em; }
+.battle-result-event { color: #e8a2ae; font-size: 14px; letter-spacing: .15em; }
+.battle-result-hint { color: #a8acb3; font-size: 11px; margin-top: .5rem; }
+.outcome-announcement { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+@keyframes battle-result-enter { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+@media(prefers-reduced-motion: reduce) { .battle-result-band { animation: none; } }
+@media print { .battle-result-overlay, .outcome-announcement { display: none !important; } }
+.encounter-note[hidden] { display: none !important; }
+#chapter .encounter-note { margin: .65rem 0 .5rem; color: #dbb7a4; font-size: .78rem; font-weight: 700; letter-spacing: .16em; border-left: 3px solid #b48d70; padding-left: .65rem; }
+#chapter[data-encounter="redmoon"] .encounter-note { color: #e5a3ae; border-color: #c4697c; }
+#chapter[data-encounter="firstcombat"] .encounter-note { color: #e3c091; border-color: #be9363; }
+#chapter[data-encounter="loss"] .encounter-note { color: #d8a2b6; border-color: #a96c83; }
+#chapter[data-encounter="embers"] .encounter-note { color: #ebc3a1; border-color: #bb8a61; }
+#chapter[data-encounter="council"] .encounter-note { color: #d8cfab; border-color: #aaa071; }
+.outcome-rewards, .battle-result-rewards { display: flex; flex-direction: column; gap: .4rem; }
+.outcome-rewards { margin-top: 1rem; padding-top: .8rem; border-top: 1px solid #c9b17826; }
+.outcome-progress-gain { font-weight: 700; color: #ead099; font-size: clamp(14px, 1.7vw, 22px); }
+.outcome-progress-note { color: #b0b5bd; font-size: 11px; }
+.outcome-loot { color: #eee6d6; font-size: clamp(13px, 1.4vw, 18px); line-height: 1.8; overflow-wrap: anywhere; }
+.outcome-runes { color: #dfc78e; font-size: 14px; }
+.battle-result-rewards { margin: .55rem auto 0; max-width: min(820px, 90vw); }
+.outcome-aftermath, .battle-result-aftermath { display: flex; flex-direction: column; gap: .4rem; color: #d6dfe0; text-align: left; }
+.outcome-aftermath { margin-top: 1rem; padding-top: .9rem; border-top: 1px solid #b3a48433; }
+.battle-result-aftermath { width: min(680px, 88vw); margin: .6rem auto; padding: .8rem 1rem; background: #25303966; border: 1px solid #ad9a753b; border-radius: 5px; }
+.aftermath-heading { color: #d2b991; font-size: 11px; letter-spacing: .1em; }
+.aftermath-people { color: #eee8dc; font-weight: 600; font-size: clamp(14px, 1.6vw, 19px); line-height: 1.6; }
+.aftermath-detail { font-size: clamp(12px, 1.15vw, 15px); line-height: 1.7; overflow-wrap: anywhere; }
+.battle-result-overlay { overflow-y: auto; }
+@media(max-height:600px) {
+  .battle-result-band { gap: .25rem; padding: 1rem; }
+  .battle-result-title { font-size: clamp(32px, 7vh, 56px); }
+  .battle-result-rewards { gap: .2rem; margin-top: .25rem; }
+}

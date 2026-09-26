@@ -107,3 +107,29 @@ main{max-width:none;padding-left:12px;padding-right:12px}
 #chapter[data-mode=below] .reading-frame:has(>figure[hidden]) .text-panel{grid-row:1;height:auto}
 @media(max-width:700px){#chapter[data-mode=below] .text-panel{margin:0 16px;padding:12px 16px 22px}.text-panel h2{font-size:21px}}
 }
+
+/* Side stories are reachable without scrolling the story text. */
+#readerTools #sideStoryShortcut{border-color:#a98b58;color:#f0d59f;background:#302a20;white-space:nowrap}
+#sideStoryDialog{position:fixed;inset:calc(var(--reader-tools-height) + 12px) 20px auto auto;width:min(420px,calc(100vw - 32px));max-height:calc(100svh - var(--reader-tools-height) - 36px);margin:0;padding:22px;color:var(--paper);background:#14232f;border:1px solid #99845c;border-radius:12px;box-shadow:0 20px 70px #0008;overflow-y:auto;overscroll-behavior:contain}
+#sideStoryDialog::backdrop{background:#02091175}
+.side-story-heading{display:flex;justify-content:space-between;align-items:center;gap:16px}
+.side-story-heading h2{font-size:19px;margin:0;color:var(--gold)}
+#sideStoryClose{font-size:13px;white-space:nowrap}
+.side-story-link{padding:18px 0;border-top:1px solid #3a4c57}
+.side-story-link small{display:block;color:#aebbc4;font-size:12px}
+.side-story-link a{display:block;font-size:18px;font-weight:600;margin-top:5px}
+.side-story-link p{font-size:14px;line-height:1.8;margin:8px 0 0}
+@media(max-width:700px){#readerTools .view-controls{width:100%;justify-content:flex-end}#sideStoryDialog{right:16px;padding:18px}}
+@media print{#sideStoryDialog{display:none}}
+
+/* Read companion stories in place, including when the book is opened locally. */
+#sideStoryDialog{width:min(600px,calc(100vw - 32px))}
+.side-story-link button{display:block;width:100%;text-align:left;font-size:18px;font-weight:600;margin-top:5px;color:var(--gold);background:transparent;border:0;padding:5px 0}
+.side-story-back{font-size:13px;margin-top:10px}
+.side-story-reading-title{font-size:24px;line-height:1.6;color:var(--gold);margin:18px 0 8px}
+#sideStoryLinks .side-story-reading-art{margin:20px 0;width:100%}
+.side-story-reading-art-frame{overflow:hidden;border-radius:8px}
+#sideStoryLinks .side-story-reading-art img{display:block;max-width:none;height:auto;max-height:none;object-fit:initial}
+#sideStoryLinks .side-story-reading-art figcaption{display:block;font-size:12px}
+.side-story-reading-prose{font-size:var(--font);line-height:2}
+.side-story-reading-prose p{white-space:pre-line;overflow-wrap:anywhere;margin:1.25em 0}

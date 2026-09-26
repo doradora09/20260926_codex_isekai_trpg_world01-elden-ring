@@ -1,0 +1,68 @@
+#conversationShortcut{font:inherit;font-size:12px;letter-spacing:normal;text-transform:none;padding:6px 10px;border:1px solid #99845c;border-radius:6px;background:#302a20;color:#f0d59f;cursor:pointer;white-space:nowrap}
+#conversationDialog{box-sizing:border-box;position:fixed;inset:24px 20px auto auto;margin:0;width:min(620px,calc(100vw - 32px));max-height:calc(100dvh - 48px);padding:24px;color:#edf1ed;background:#14232f;border:1px solid #99845c;border-radius:12px;box-shadow:0 20px 70px #0008;overflow-y:auto;overscroll-behavior:contain;font:15px/1.85 system-ui,-apple-system,sans-serif;text-align:left}
+#conversationDialog::backdrop{background:#02091185}
+#conversationDialog .conversation-heading{display:flex;align-items:center;justify-content:space-between;gap:15px;position:sticky;top:-24px;background:#14232f;padding:12px 0;z-index:1}
+#conversationDialog h2{font-size:21px;margin:0}#conversationDialog h3{font-size:19px;line-height:1.5}#conversationDialog h4{font-size:13px;margin:0 0 10px;color:#e3bf7b}#conversationDialog button,#conversationDialog select{font:inherit;color:#edf1ed;background:#223542;border:1px solid #71808a;border-radius:6px;padding:6px 10px}#conversationDialog select{display:block;width:100%;margin:8px 0 20px;font-size:14px}#conversationDialog .conversation-note{font-size:12px;color:#bdc9cf}#conversationDialog .conversation-case{padding:16px 0;border-top:1px solid #43515b}#conversationDialog .conversation-case>p{font-size:12px;color:#e3bf7b}#conversationDialog .conversation-user,#conversationDialog .conversation-gm{padding:16px;margin:16px 0;background:#1d3444;border-radius:10px;border-left:3px solid #b79d69}#conversationDialog .conversation-user{margin-left:28px}#conversationDialog .conversation-gm{margin-right:28px;background:#1b292f;border-color:#7b9c9e}#conversationDialog blockquote{margin:0;padding:0;border:0;background:transparent;font-size:16px;color:inherit;white-space:pre-wrap}#conversationDialog p{margin:8px 0}#conversationDialog details{margin-top:16px}#conversationDialog summary{cursor:pointer;color:#e3bf7b}#conversationDialog a{color:#e3bf7b}#conversationDialog button:focus-visible,#conversationDialog select:focus-visible,#conversationShortcut:focus-visible{outline:2px solid #e3bf7b;outline-offset:3px}@media(max-width:600px){#conversationDialog{right:16px;padding:18px}#conversationDialog .conversation-user{margin-left:10px}#conversationDialog .conversation-gm{margin-right:10px}#conversationDialog .conversation-heading{top:-18px}#conversationDialog h2{font-size:18px}}@media print{#conversationDialog,#conversationShortcut{display:none}}
+
+#conversationShortcut[hidden]{display:none!important}
+
+#conversationDialog time{display:block;font-size:11px;color:#afc0c8;margin-bottom:8px}#conversationDialog .conversation-context{border-bottom:1px solid #43515b;padding-bottom:12px}
+
+/* Decision precedes the illustration; reserve its height instead of covering art. */
+#playerDecisionSummary{box-sizing:border-box;margin:0;padding:10px var(--reader-text-inset,24px) 12px;background:#15222c;border-bottom:1px solid #34414b;color:#e6ecec;text-align:left;line-height:1.65}
+#playerDecisionSummary small{display:block;color:#dfbc77;font:600 11px/1.5 system-ui,sans-serif;letter-spacing:.06em;margin-bottom:3px}
+#playerDecisionSummary p{margin:0;font-size:13px;white-space:pre-line;overflow-wrap:anywhere}
+#playerDecisionSummary[hidden],#chapter[data-mode=image] #playerDecisionSummary{display:none!important}
+@media screen{#chapter .reading-frame{height:calc(100svh - var(--reader-tools-height) - var(--decision-summary-height,0px) - 8px)}#chapter[data-mode=image] .reading-frame{height:calc(100svh - var(--reader-tools-height) - 8px)}}
+@media(max-width:700px){#playerDecisionSummary{padding:8px 16px 10px}#playerDecisionSummary p{font-size:12px;white-space:normal}}
+
+/* Preserve prose height when the decision summary uses part of the viewport. */
+#playerDecisionSummary{padding-top:6px;padding-bottom:7px;line-height:1.5}
+#playerDecisionSummary small{margin-bottom:2px}
+@media screen{
+#chapter:has(>#playerDecisionSummary:not([hidden])){--decision-prose-height:clamp(240px,calc((100svh - var(--reader-tools-height) - 32px)*.35),360px)}
+#chapter[data-mode=below]:has(>#playerDecisionSummary:not([hidden])) .reading-frame{grid-template-rows:minmax(180px,1fr) var(--decision-prose-height);min-height:calc(var(--decision-prose-height) + 204px)}
+#chapter[data-mode=below]:has(>#playerDecisionSummary:not([hidden])) .reading-frame:has(>figure[hidden]){grid-template-rows:minmax(0,1fr)}
+#chapter[data-mode=overlay]:has(>#playerDecisionSummary:not([hidden])) .reading-frame:has(>figure:not([hidden])) .text-panel{top:min(var(--reader-overlay-top,66%),calc(100% - var(--decision-prose-height) - 8px))}
+}
+
+/* Bring the art up to the summary and keep only a small prose overlap. */
+@media screen{
+#playerDecisionSummary{padding-bottom:4px}
+#chapter:has(>#playerDecisionSummary:not([hidden])):not([data-mode=image]) .reading-frame>figure img{object-position:center top}
+#chapter[data-mode=below]:has(>#playerDecisionSummary:not([hidden])) .reading-frame{padding-top:2px}
+#chapter[data-mode=overlay]:has(>#playerDecisionSummary:not([hidden])) .reading-frame{min-height:calc(var(--decision-prose-height) + 204px)}
+#chapter[data-mode=overlay]:has(>#playerDecisionSummary:not([hidden])) .reading-frame>figure{top:2px;bottom:calc(var(--decision-prose-height) - 20px)}
+}
+
+/* Compact decision label and sentence into one line when space permits. */
+#playerDecisionSummary{display:flex;align-items:baseline;gap:6px 14px;flex-wrap:wrap;padding-top:6px;padding-bottom:6px}
+#playerDecisionSummary small{display:inline;margin:0;white-space:nowrap;flex:0 0 auto}
+#playerDecisionSummary p{display:inline;margin:0;white-space:normal;flex:1 1 400px}
+@media(max-width:700px){#playerDecisionSummary{gap:2px 8px}#playerDecisionSummary p{flex-basis:100%}}
+
+/* A one-line pause between the decision and its illustration. */
+#playerDecisionSummary{padding-bottom:22px}
+
+#readerTools #decisionSummarySetting{display:inline-flex;align-items:center;gap:5px;margin:0;color:#c9d3d9;font-size:12px;white-space:nowrap;cursor:pointer}
+#decisionSummaryToggle{width:15px;height:15px;margin:0;accent-color:#dfbc77;cursor:pointer}
+
+/* A compact second line; it uses the same opt-in setting and measured height. */
+#readerProgressSummary{flex:0 0 100%;display:flex;align-items:center;gap:5px 10px;flex-wrap:wrap;font:12px/1.5 system-ui,sans-serif;color:#cbd6db}
+#readerProgressSummary[hidden]{display:none!important}
+#readerProgressSummary meter{width:70px;height:7px;flex:0 0 70px;appearance:none;border:0;border-radius:4px;background:#354953}
+#readerProgressSummary meter::-webkit-meter-bar{background:#354953;border:0;border-radius:4px}
+#readerProgressSummary meter::-webkit-meter-optimum-value{background:#c6a864;border-radius:4px}
+#readerProgressSummary meter::-moz-meter-bar{background:#c6a864;border-radius:4px}
+#readerProgressSummary .reader-time-left{font-variant-numeric:tabular-nums;color:#ead7ae}
+#readerProgressSummary .reader-time-urgent{color:#ffbb91;font-weight:600}
+#readerProgressSummary .reader-progress-note{font-size:11px;color:#97abb7}
+@media(max-width:700px){#readerProgressSummary{font-size:11px;gap:4px 8px}#readerProgressSummary meter{width:48px;flex-basis:48px}}
+
+/* Show the dilemma and its reasoning without taking over the reading viewport. */
+#playerDecisionSummary #playerDecisionText{font-size:13px;line-height:1.65;min-width:0}
+#playerDecisionSummary .decision-context-collapsed{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;line-clamp:3;overflow:hidden}
+#playerDecisionSummary .decision-context-expanded{display:block;max-height:min(240px,30svh);overflow-y:auto;overscroll-behavior:contain;scrollbar-gutter:stable}
+#decisionContextToggle{font:inherit;font-size:11px;line-height:1.5;padding:1px 7px;color:#dfbc77;border:1px solid #65716e;background:transparent;border-radius:4px;cursor:pointer;white-space:nowrap}
+#decisionContextToggle[hidden]{display:none!important}
+#decisionContextToggle:focus-visible{outline:2px solid #dfbc77;outline-offset:3px}

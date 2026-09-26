@@ -1,0 +1,27 @@
+#diceConditions{margin:24px 0 16px;border-top:1px solid #43515b;padding-top:14px}
+#diceConditions[hidden]{display:none!important}
+#diceConditions>summary{cursor:pointer;color:#dfbc77;font-size:14px;line-height:1.6;padding:6px 0}
+#diceConditions>summary:focus-visible{outline:2px solid #dfbc77;outline-offset:4px}
+.dice-conditions-content{font-size:14px;line-height:1.8;overflow-wrap:anywhere}
+.dice-conditions-content .muted,.dice-condition-source{font-size:12px;color:#b4c2c9}
+.dice-condition-document{margin:18px 0;padding:14px 16px;background:#15242d;border:1px solid #354954;border-radius:8px}
+.dice-condition-document h3{font-size:15px;color:#dfbc77;margin:0 0 14px}
+.dice-condition-document dl{margin:0}
+.dice-condition-document dt{font-size:12px;font-weight:600;color:#d6c6a6;margin-top:12px}
+.dice-condition-document dd{margin:3px 0 12px;padding-left:12px;border-left:1px solid #43515b;white-space:pre-wrap}
+.dice-condition-document ol{margin:6px 0;padding-left:22px}
+.dice-condition-document li+li{margin-top:14px}
+.dice-condition-source{display:block;margin-top:16px}
+.dice-condition-audit{border-left:3px solid #dfbc77;padding-left:12px}
+.dice-readable-summary p{margin:10px 0}
+.dice-readable-summary h4{font-size:14px;margin:18px 0 8px;color:#dfbc77}
+.dice-readable-summary strong{color:#f0ddb8}
+.dice-readable-odds{list-style:none;padding:0;margin:14px 0;display:grid;gap:8px}
+.dice-readable-odds li{padding:10px 12px;border-left:3px solid #ad955d;background:#1c303a}
+.dice-readable-odds li+li{margin-top:0}
+.dice-readable-odds strong,.dice-readable-odds span{display:block}
+.dice-readable-branches{padding-left:20px}
+.dice-condition-original{margin-top:18px;border-top:1px solid #43515b;padding-top:10px}
+.dice-condition-original>summary{cursor:pointer;color:#b4c2c9;font-size:13px;padding:5px 0}
+.dice-condition-original>summary:focus-visible{outline:2px solid #dfbc77;outline-offset:3px}
+@media(max-width:600px){.dice-condition-document{padding:12px}.dice-condition-document dd{padding-left:8px}}

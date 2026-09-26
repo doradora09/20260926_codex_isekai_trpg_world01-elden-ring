@@ -1,0 +1,19 @@
+/* Name readings are a separate line in the catalogue and ruby only on debut. */
+.character-person .character-name-reading {
+  display: block;
+  margin: 3px 0 5px;
+  font-size: 11px;
+  line-height: 1.5;
+  letter-spacing: .06em;
+  color: #b6c9ce;
+}
+.character-detail-head .character-name-reading {
+  margin: -3px 0 11px;
+  font-size: 13px;
+  line-height: 1.6;
+  letter-spacing: .12em;
+  color: #c2d1d4;
+}
+#prose ruby.student-name { ruby-position: over; ruby-align: center; }
+#prose ruby.student-name rt { font-size: .53em; font-weight: 400; letter-spacing: .04em; color: #c5d4d7; }
+@media print { #prose ruby.student-name rt { color: #333; } }
