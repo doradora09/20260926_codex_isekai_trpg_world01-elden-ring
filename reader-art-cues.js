@@ -21,7 +21,7 @@
     '1-103':[[0,'assets/reader-day93-ashen-provisions-v1.jpg','灰都の大聖堂で、食料を分ける'],[5,a(103),'斧を持つ王'],[11,'assets/reader-day93-hoarah-pressure-v1.jpg','受け止めきれない力'],[19,'assets/reader-day93-stones-return-v1.jpg','敗北した手元に、六つの鍛石']],
     '1-104':[[0,'assets/reader-day94-three-routes-v1.jpg','二日を、三隊で使う'],[6,a(104),'結晶人に打撃を'],[11,'assets/reader-day94-hidden-chest-v1.jpg','隠された坑道の鈴玉'],[14,'assets/reader-day94-glovewort-v1.jpg','クララのための一輪'],[21,'assets/reader-day94-returned-tools-v1.jpg','持ち帰ったものを、並べる']],
     '1-106':[[0,'assets/reader-day96-command-lines-v1.jpg','先生の次に、指揮する人'],[5,'assets/reader-day96-throne-approach-v1.jpg','鍛え直した武器と、同じ王座へ'],[14,'assets/reader-day96-tsumugi-fire-v1.jpg','紬、空けてもらった場所に火柱を'],[16,a(106),'武器を捨てた戦士'],[31,'assets/reader-day96-victory-thirteen-v1.jpg','十三人で、王座への道を開く'],[36,'assets/reader-day96-homecoming-v1.jpg','使わずに済んだ、救援の紙']],
-    '1-110':[[0,'assets/reader-ending-melina-v1.jpg','一人の旅人へ、おかえりを']]
+    '1-110':[[0,'assets/reader-ending-melina-v1.jpg','一人の旅人へ、おかえりを'],[39,'assets/reader-school-homecoming-v1.jpg','元の教室へ。先生も含めて、三十三人。']]
   };
   for(const s of d.scenes){if(cues[s.id]){s.artBeats=cues[s.id].map(([paragraph,image,label])=>({paragraph,image,label}));s.originalImage=s.image;s.image=s.artBeats[0].image;}}
   window.READER_ART_CUES={version:2,scenes:cues};

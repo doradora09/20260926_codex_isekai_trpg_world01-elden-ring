@@ -8,6 +8,7 @@
     melina.source = 'reader.html#scene-1-110';
   }
   const home = slides.findIndex(slide => slide.id === 'day-18');
+  if (home !== -1) slides[home].image = 'assets/reader-school-homecoming-v1.jpg';
   if (home !== -1 && !slides.some(slide => slide.id === 'epilogue-bbq')) {
     slides.splice(home + 1, 0, {
       id: 'epilogue-bbq', kind: 'memory', duration: 12,

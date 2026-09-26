@@ -1,7 +1,7 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#111b23"><title>はじめから読む｜異世界転移録</title><link rel="stylesheet" href="reader.css?v=20260926-reading-edition-v7"><link rel="stylesheet" href="conversation-log.css?v=20260926-reading-edition-v7"><link rel="stylesheet" href="reader-conditions.css?v=20260926-reading-edition-v7"><link rel="stylesheet" href="reader-outcomes.css?v=20260926-reading-edition-v7">
-<link rel="stylesheet" href="reader-columns.css?v=20260926-reading-edition-v7">
-<link rel="stylesheet" href="student-readings.css?v=20260926-reading-edition-v7"><link rel="stylesheet" href="reader-areas.css?v=20260926-reading-edition-v7"><link rel="stylesheet" href="reader-effects.css?v=20260926-reading-edition-v7"></head><body>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#111b23"><title>はじめから読む｜異世界転移録</title><link rel="stylesheet" href="reader.css?v=20260927-school-homecoming-v1"><link rel="stylesheet" href="conversation-log.css?v=20260927-school-homecoming-v1"><link rel="stylesheet" href="reader-conditions.css?v=20260927-school-homecoming-v1"><link rel="stylesheet" href="reader-outcomes.css?v=20260927-school-homecoming-v1">
+<link rel="stylesheet" href="reader-columns.css?v=20260927-school-homecoming-v1">
+<link rel="stylesheet" href="student-readings.css?v=20260927-school-homecoming-v1"><link rel="stylesheet" href="reader-areas.css?v=20260927-school-homecoming-v1"><link rel="stylesheet" href="reader-effects.css?v=20260927-school-homecoming-v1"></head><body>
 <header><a href="index.html">← オープニング</a><span>異世界転移録 · 読書室</span><nav aria-label="資料メニュー"><a href="calendar.html">旅日誌</a> · <a href="behind-the-scenes.html">制作の裏話</a> · <a href="board.html">最新の盤面を確認する</a></nav></header>
 <main><section id="readerIntro" class="intro"><small>THE WHOLE JOURNEY</small><h1>最初の一日から、<br>三十三人の帰る日まで。</h1><p id="readerStart">本文と挿絵を、一話ずつ。途中で閉じても、しおりから続きを読めます。</p><div class="entry-links"><a href="opening.html">オープニングを見る ▶</a><a href="#scene-1-1">はじめから読む</a><button id="resume" hidden>しおりから再開</button></div><p id="bookmarkNote" class="muted" aria-live="polite"></p></section>
 <section id="readerTools" class="toolbar" aria-label="読む場面を選ぶ"><label>章 <select id="chapterSelect" aria-label="章を選ぶ"></select></label><label>日付 <select id="daySelect"></select></label><button id="tocToggle" aria-expanded="false" aria-controls="toc">全話の目次</button><label>文字 <select id="fontSize"><option value="17">標準</option><option value="20">大きめ</option><option value="23">大</option></select></label><label id="skipSupplementSetting" title="章の扉と追加のチュートリアル・作戦会議・解説ページを飛ばします。本編の出来事は省略しません。"><input id="skipSupplements" type="checkbox">補足イベントをスキップ</label><span id="position" aria-live="polite"></span><div class="view-controls"><button id="sideStoryShortcut" type="button" aria-haspopup="dialog" aria-controls="sideStoryDialog" hidden>サイドストーリーを読む</button><label><span class="sr-only">本文の表示</span><select id="readingMode" aria-label="本文の表示"><option value="below">標準（画像65%・本文35%）</option><option value="overlay">透過ウィンドウ</option><option value="image">画像のみ</option></select></label><button id="imageToggle" type="button" aria-pressed="false">画像だけ表示</button></div></section>
@@ -10,37 +10,37 @@
 <article id="chapter" tabindex="-1"><div class="reading-frame"><nav id="chapterNav" class="page-nav" aria-label="前後の話"><a id="prevTop"></a><a id="nextTop"></a></nav><figure id="figure"><img id="chapterImage" alt=""><figcaption>この場面の挿絵</figcaption></figure><section id="textPanel" class="text-panel" tabindex="0" aria-label="物語の本文・スクロールして読む"><div id="chapterMeta" class="eyebrow"></div><h2 id="chapterTitle"></h2><p class="scroll-hint">本文は枠内でスクロール ↓　上のメニューで表示を切り替えられます</p><div id="prose" class="prose"></div><blockquote id="quote"></blockquote><details id="dailyRecords"><summary id="dailySummary">この日の記録</summary><div id="dailyContent"></div></details><details id="recordDetails"><summary>この時点の状況・選択肢を見る</summary><p class="muted">当時の記録です。読む操作で物語や資材は変わりません。</p><div id="cards"></div><p><a id="sceneRecordLink" href="records.html">この話の詳細記録を開く ↗</a></p></details><nav class="page-nav bottom" aria-label="読了後の移動"><a id="prevBottom"></a><a id="nextBottom"></a></nav><section id="endCard" class="end-card" hidden><p>三十三人の旅を、最後まで。</p><a href="credits.html">エンドロールへ ▶</a></section></section></div></article>
 <p class="footnote">当時のプレイ記録をもとに、読書用の加筆・再構成を行っています。判定・進行記録と制作時の会話は当時の内容です。<br>しおりはこのブラウザーに保存します。保存できない環境では、URLを控えて続きを読めます。</p></main><dialog id="sideStoryDialog" aria-labelledby="sideStoryTitle"><div class="side-story-heading"><h2 id="sideStoryTitle">この日の寄り道</h2><button id="sideStoryClose" type="button" autofocus>閉じる</button></div><p class="muted">この場面までのサイドストーリーです。このウィンドウで読めます。閉じると本編の続きに戻れます。</p><div id="sideStoryLinks"></div></dialog><noscript><p>本文の切り替えにはJavaScriptが必要です。<a href="calendar.html">旅日誌へ戻る</a></p></noscript>
 
-<script src="reader-data.js?v=20260926-reading-edition-v7"></script>
-<script src="reader-prologue.js?v=20260926-reading-edition-v7"></script>
-<script src="reader-context.js?v=20260926-reading-edition-v7"></script>
-<script src="stories-data.js?v=20260926-reading-edition-v7"></script>
-<script src="reader-finale.js?v=20260926-reading-edition-v7"></script>
-<script src="reader-early-days.js?v=20260926-reading-edition-v7"></script>
-<script src="reader-early-editing.js?v=20260926-reading-edition-v7"></script>
-<script src="reader-first-victory.js?v=20260926-reading-edition-v7"></script>
-<script src="reader-expedition.js?v=20260926-reading-edition-v7"></script>
-<script src="reader-mid-journey.js?v=20260926-reading-edition-v7"></script>
-<script src="reader-council-status.js?v=20260926-reading-edition-v7"></script>
-<script src="reader-academy-editing.js?v=20260926-reading-edition-v7"></script>
-<script src="reader-last-days.js?v=20260926-reading-edition-v7"></script>
-<script src="reader-epilogue.js?v=20260926-reading-edition-v7"></script>
-<script src="reader-art-cues.js?v=20260926-reading-edition-v7"></script>
-<script src="reader-atlas.js?v=20260926-reading-edition-v7"></script>
-<script src="reader-growth.js?v=20260926-reading-edition-v7"></script>
-<script src="reader-chapters.js?v=20260926-reading-edition-v7"></script>
-<script src="reader.js?v=20260926-reading-edition-v7"></script>
-<script src="conversation-data.js?v=20260926-reading-edition-v7"></script>
-<script src="reader-progress-data.js?v=20260926-reading-edition-v7"></script>
-<script src="conversation-log.js?v=20260926-reading-edition-v7"></script>
-<script src="reader-conditions-data.js?v=20260926-reading-edition-v7"></script>
-<script src="reader-conditions.js?v=20260926-reading-edition-v7"></script>
-<script src="reader-outcomes-data.js?v=20260926-reading-edition-v7"></script>
-<script src="reader-outcomes.js?v=20260926-reading-edition-v7"></script>
-<script src="reader-columns.js?v=20260926-reading-edition-v7"></script>
-<script src="student-readings.js?v=20260926-reading-edition-v7"></script>
-<script src="reader-names.js?v=20260926-reading-edition-v7"></script>
-<script src="reader-areas-data.js?v=20260926-reading-edition-v7"></script>
-<script src="reader-areas.js?v=20260926-reading-edition-v7"></script>
-<script src="reader-dice-cues.js?v=20260926-reading-edition-v7"></script>
-<script src="reader-effects.js?v=20260926-reading-edition-v7"></script>
+<script src="reader-data.js?v=20260927-school-homecoming-v1"></script>
+<script src="reader-prologue.js?v=20260927-school-homecoming-v1"></script>
+<script src="reader-context.js?v=20260927-school-homecoming-v1"></script>
+<script src="stories-data.js?v=20260927-school-homecoming-v1"></script>
+<script src="reader-finale.js?v=20260927-school-homecoming-v1"></script>
+<script src="reader-early-days.js?v=20260927-school-homecoming-v1"></script>
+<script src="reader-early-editing.js?v=20260927-school-homecoming-v1"></script>
+<script src="reader-first-victory.js?v=20260927-school-homecoming-v1"></script>
+<script src="reader-expedition.js?v=20260927-school-homecoming-v1"></script>
+<script src="reader-mid-journey.js?v=20260927-school-homecoming-v1"></script>
+<script src="reader-council-status.js?v=20260927-school-homecoming-v1"></script>
+<script src="reader-academy-editing.js?v=20260927-school-homecoming-v1"></script>
+<script src="reader-last-days.js?v=20260927-school-homecoming-v1"></script>
+<script src="reader-epilogue.js?v=20260927-school-homecoming-v1"></script>
+<script src="reader-art-cues.js?v=20260927-school-homecoming-v1"></script>
+<script src="reader-atlas.js?v=20260927-school-homecoming-v1"></script>
+<script src="reader-growth.js?v=20260927-school-homecoming-v1"></script>
+<script src="reader-chapters.js?v=20260927-school-homecoming-v1"></script>
+<script src="reader.js?v=20260927-school-homecoming-v1"></script>
+<script src="conversation-data.js?v=20260927-school-homecoming-v1"></script>
+<script src="reader-progress-data.js?v=20260927-school-homecoming-v1"></script>
+<script src="conversation-log.js?v=20260927-school-homecoming-v1"></script>
+<script src="reader-conditions-data.js?v=20260927-school-homecoming-v1"></script>
+<script src="reader-conditions.js?v=20260927-school-homecoming-v1"></script>
+<script src="reader-outcomes-data.js?v=20260927-school-homecoming-v1"></script>
+<script src="reader-outcomes.js?v=20260927-school-homecoming-v1"></script>
+<script src="reader-columns.js?v=20260927-school-homecoming-v1"></script>
+<script src="student-readings.js?v=20260927-school-homecoming-v1"></script>
+<script src="reader-names.js?v=20260927-school-homecoming-v1"></script>
+<script src="reader-areas-data.js?v=20260927-school-homecoming-v1"></script>
+<script src="reader-areas.js?v=20260927-school-homecoming-v1"></script>
+<script src="reader-dice-cues.js?v=20260927-school-homecoming-v1"></script>
+<script src="reader-effects.js?v=20260927-school-homecoming-v1"></script>
 </body></html>
