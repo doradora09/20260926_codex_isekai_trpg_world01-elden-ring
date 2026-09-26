@@ -3,7 +3,7 @@
 .reading-edition-details p{white-space:pre-line;line-height:1.9}
 #readingRecap{border-left:2px solid #b59a66;padding:.2rem 1rem;margin-bottom:1.4rem;color:#c1cbd0;font-size:.86em}
 #readingRecap[hidden],.reader-dice-toast[hidden],.reader-redmoon-opening[hidden]{display:none!important}
-.reader-effect-settings{position:relative;font-size:12px}
+#readerTools .reader-effect-settings{position:relative;flex:0 0 auto;align-self:center;font-size:12px;margin:0;padding:0;background:transparent;border-radius:0}
 .reader-effect-settings summary{cursor:pointer;padding:.4rem .6rem;border:1px solid #637784;border-radius:5px;white-space:nowrap}
 .reader-effect-options{position:absolute;right:0;top:100%;width:max-content;max-width:80vw;padding:.7rem;background:#14232ef7;border:1px solid #8c9aa6;border-radius:6px;z-index:80;box-shadow:0 10px 24px #0006}
 .reader-effect-options label{display:flex;gap:.6rem;padding:.45rem}
