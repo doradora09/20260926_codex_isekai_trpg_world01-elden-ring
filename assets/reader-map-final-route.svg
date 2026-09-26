@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 690" role="img" aria-labelledby="title desc">
+<title id="title">DAY89の先読み。残る四つの関門</title>
+<desc id="desc">マリケス、ギデオン、ゴッドフレイからホーラ・ルー、ラダゴンからエルデの獣。最後の関門は休息なしの二連戦。DAY90の赤月を越え、DAY91から99の九日を攻略と立て直しに使う計画。</desc>
+<style>text{fill:#eee2c7;font-family:serif}.small{font-size:17px;fill:#c6b997}.name{font-size:23px}.box{fill:#233436;stroke:#b9a06a;stroke-width:1.5}.step{font:20px Georgia,serif;fill:#dec389}</style>
+<rect x="12" y="12" width="516" height="666" rx="9" fill="#17272c" stroke="#b29b65"/>
+<text x="42" y="58" font-size="27">残る、四つの関門。</text><text x="43" y="92" class="small">DAY89 夜 ／ 先読みで確かめた道筋</text>
+<path d="M65 154 V514" fill="none" stroke="#c4aa70" stroke-width="2" stroke-dasharray="5 7"/>
+<rect class="box" x="37" y="117" width="466" height="82" rx="6"/><text x="54" y="152" class="step">01</text><text x="99" y="151" class="name">黒き剣、マリケス</text><text x="99" y="181" class="small">まずは再戦 ／ 獣の司祭から続く一戦</text>
+<rect class="box" x="37" y="221" width="466" height="82" rx="6"/><text x="54" y="256" class="step">02</text><text x="99" y="255" class="name">百智卿ギデオン</text><text x="99" y="285" class="small">灰都で立ちはだかる相手</text>
+<rect class="box" x="37" y="325" width="466" height="96" rx="6"/><text x="54" y="360" class="step">03</text><text x="99" y="359" class="name">ゴッドフレイ</text><text x="99" y="390" class="small">→ ホーラ・ルー ／ 同じ戦いの後半</text>
+<rect x="37" y="443" width="466" height="107" rx="6" fill="#3b3430" stroke="#e2c58b" stroke-width="2"/><text x="54" y="478" class="step">04</text><text x="99" y="477" class="name">ラダゴン → エルデの獣</text><text x="99" y="511" class="small">休息を挟めない、最後の二連戦</text>
+<text x="43" y="591" font-size="21">DAY90 赤月 → DAY91–99 の九日</text><text x="43" y="623" class="small">攻略、補給、再挑戦、仲間の救出に使う。</text><text x="43" y="651" class="small">予定の線は、勝利の印ではない。</text>
+</svg>

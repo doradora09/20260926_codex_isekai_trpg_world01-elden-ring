@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1040" viewBox="0 0 900 1040" role="img">
+<title>七日間を、使い切る前に</title>
+<defs><pattern id="paper" width="22" height="22" patternUnits="userSpaceOnUse"><path d="M0 21H22" stroke="#9e8453" stroke-opacity=".055"/></pattern><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1L9 5L1 9" fill="none" stroke="#6c785d" stroke-width="1.5"/></marker></defs>
+<rect width="900" height="1040" rx="12" fill="#e7ddbd"/><rect x="25" y="25" width="850" height="990" rx="8" fill="url(#paper)" stroke="#a59670" stroke-width="2"/>
+<g font-family="Hiragino Kaku Gothic ProN,Yu Gothic,sans-serif" fill="#353b34">
+<text x="68" y="88" font-size="25" letter-spacing="5" fill="#7c6b46">旅の略図 ／ DAY 93</text>
+<text x="68" y="153" font-size="39" font-weight="700">七日間を、使い切る前に</text>
+<path d="M70 181H830" stroke="#9e8b62"/>
+<rect x="66" y="218" width="767" height="133" rx="9" fill="#d4ba7a" stroke="#8f8967" stroke-width="2"/>
+<circle cx="111" cy="267" r="21" fill="#4a6054"/><text x="111" y="277" text-anchor="middle" font-size="27" fill="#fff6d9">1</text>
+<text x="155" y="275" font-size="35" font-weight="700">今夜：エレの教会</text>
+<text x="155" y="321" font-size="26" fill="#626550">第一王に敗れ、十三人で帰還</text>
+<path d="M111 351V382" fill="none" stroke="#6c785d" stroke-width="3" stroke-dasharray="10 9" marker-end="url(#arrow)"/>
+<rect x="66" y="394" width="767" height="133" rx="9" fill="#f2edda" stroke="#8f8967" stroke-width="2"/>
+<circle cx="111" cy="443" r="21" fill="#4a6054"/><text x="111" y="453" text-anchor="middle" font-size="27" fill="#fff6d9">2</text>
+<text x="155" y="451" font-size="35" font-weight="700">DAY 94–95：補強</text>
+<text x="155" y="497" font-size="26" fill="#626550">三隊で鈴玉・鍛石を確保</text>
+<path d="M111 527V558" fill="none" stroke="#6c785d" stroke-width="3" stroke-dasharray="10 9" marker-end="url(#arrow)"/>
+<rect x="66" y="570" width="767" height="133" rx="9" fill="#f2edda" stroke="#8f8967" stroke-width="2"/>
+<circle cx="111" cy="619" r="21" fill="#4a6054"/><text x="111" y="629" text-anchor="middle" font-size="27" fill="#fff6d9">3</text>
+<text x="155" y="627" font-size="35" font-weight="700">DAY 96：再挑戦</text>
+<text x="155" y="673" font-size="26" fill="#626550">女王の閨から、王座へ戻る</text>
+<path d="M111 703V734" fill="none" stroke="#6c785d" stroke-width="3" stroke-dasharray="10 9" marker-end="url(#arrow)"/>
+<rect x="66" y="746" width="767" height="133" rx="9" fill="#f2edda" stroke="#8f8967" stroke-width="2"/>
+<circle cx="111" cy="795" r="21" fill="#4a6054"/><text x="111" y="805" text-anchor="middle" font-size="27" fill="#fff6d9">4</text>
+<text x="155" y="803" font-size="35" font-weight="700">その先：二連戦と帰還</text>
+<text x="155" y="849" font-size="26" fill="#626550">最後の一日は救出・結末の余白</text>
+<text x="68" y="982" font-size="22" fill="#78705a">目的地と分担の模式図 ／ 実際の距離・方角とは異なります</text></g></svg>
