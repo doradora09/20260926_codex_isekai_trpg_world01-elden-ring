@@ -5,6 +5,8 @@
   const el=(tag,text,cls)=>{const n=document.createElement(tag);if(text!=null)n.textContent=text;if(cls)n.className=cls;return n;};
   const preference=(key)=>{try{return localStorage.getItem(key)!=='off'}catch{return true}};
   const state={enabled:preference('isekai-reading-effects-v1'),art:preference('isekai-reading-art-v1')};window.READER_EFFECTS=state;
+  const artGuide=el('div',null,'reader-art-guide'),artCount=el('span',null,'reader-art-count'),artDots=el('span',null,'reader-art-dots');
+  artGuide.id='readerArtGuide';artGuide.hidden=true;artGuide.setAttribute('role','status');artGuide.setAttribute('aria-live','polite');artGuide.setAttribute('aria-atomic','true');artGuide.title='本文のスクロールに合わせて挿絵が切り替わります';artDots.setAttribute('aria-hidden','true');artGuide.append(artCount,artDots);$('figure').append(artGuide);
   const setting=el('details',null,'reader-effect-settings');setting.append(el('summary','読書演出'));
   const settingsBody=el('div',null,'reader-effect-options');setting.append(settingsBody);$('readerTools').append(setting);
   const reduced=window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
@@ -15,7 +17,20 @@
   const toast=el('button',null,'reader-dice-toast');toast.type='button';toast.hidden=true;toast.setAttribute('aria-label','ダイスの演出を閉じる');document.body.append(toast);
   const announcement=el('span',null,'outcome-announcement');announcement.setAttribute('role','status');document.body.append(announcement);
   const redMoon=el('button',null,'reader-redmoon-opening');redMoon.type='button';redMoon.hidden=true;redMoon.append(el('small','DAY 20'),el('strong','赤い月'),el('span','いつもの夜が、終わる。'));redMoon.setAttribute('aria-label','赤月の演出を閉じる');document.body.append(redMoon);
-  let scene=null,sceneId='',generation=0,raf=null,timers=[],armed=false,seen=new Set(),first=null;
+  let scene=null,sceneId='',generation=0,raf=null,timers=[],armed=false,seen=new Set(),first=null,artSequence=[],guideKey='';
+  function updateArtGuide(){
+    const index=artSequence.findIndex(beat=>beat.image===image.getAttribute('src'));
+    artGuide.hidden=!state.art||!!scene?.supplementType||artSequence.length<2||index<0;
+    if(artGuide.hidden)return;
+    const key=sceneId+':'+index;if(key===guideKey)return;guideKey=key;
+    artCount.textContent='挿絵 '+(index+1)+' / '+artSequence.length;
+    artGuide.setAttribute('aria-label','挿絵 '+(index+1)+'枚目、全'+artSequence.length+'枚。本文のスクロールに連動。');
+    Array.from(artDots.children).forEach((dot,i)=>dot.dataset.active=String(i===index));
+  }
+  function resetArtGuide(){
+    const images=new Set();artSequence=(scene?.artBeats||[]).filter(beat=>{if(!beat.image||images.has(beat.image))return false;images.add(beat.image);return true});guideKey='';
+    artDots.replaceChildren(...artSequence.map(()=>el('span',null,'reader-art-dot')));updateArtGuide();
+  }
   const faces=['','⚀','⚁','⚂','⚃','⚄','⚅'];
   function dismiss(){for(const timer of timers)clearTimeout(timer);timers=[];toast.hidden=true;redMoon.hidden=true;}
   toast.onclick=dismiss;redMoon.onclick=dismiss;document.addEventListener('keydown',e=>{if(e.key==='Escape')dismiss()});
@@ -37,11 +52,12 @@
   }
   function visible(node){if(!node||!node.getClientRects().length)return false;const p=panel.getBoundingClientRect(),r=node.getBoundingClientRect();return r.bottom>Math.max(p.top,0)&&r.top<Math.min(p.bottom,innerHeight)-12;}
   function check(){
-    raf=null;if(!scene||chapter.dataset.mode==='image'||scene.supplementType)return;
+    raf=null;updateArtGuide();if(!scene||chapter.dataset.mode==='image'||scene.supplementType)return;
     const activeResult=document.querySelector('.battle-result-overlay');
     if(state.art&&activeResult&&!activeResult.hidden&&activeResult.dataset.image){
       image.src=activeResult.dataset.image;
     }else if(state.art&&scene.artBeats?.length){const beats=scene.artBeats.filter(b=>b.paragraph===0||lineReached(prose.children[b.paragraph]));const beat=beats[beats.length-1]||scene.artBeats[0];if(image.getAttribute('src')!==beat.image){image.src=beat.image;image.alt=beat.label+'の挿絵';}}
+    updateArtGuide();
     if(!state.enabled||!armed||(activeResult&&!activeResult.hidden))return;
     if(sceneId==='1-38'&&!seen.has('redmoon')&&lineReached(prose.children[6])){seen.add('redmoon');dismiss();redMoon.hidden=false;announcement.textContent='二十日目、赤い月。';later(dismiss,5000);return;}
     const cues=window.READER_DICE_CUES?.[sceneId]||[];
@@ -62,8 +78,9 @@
   }
   function render(){
     const id=chapter.dataset.readerScene;if(id===sceneId&&first===prose.children[0])return;
-    generation++;dismiss();sceneId=id;first=prose.children[0];seen=new Set();armed=false;scene=window.STORY_READER_DATA.scenes.find(s=>s.id===id);if(!scene?.supplementType)addReplayButtons();schedule(false);
+    generation++;dismiss();sceneId=id;first=prose.children[0];seen=new Set();armed=false;scene=window.STORY_READER_DATA.scenes.find(s=>s.id===id);resetArtGuide();if(!scene?.supplementType)addReplayButtons();schedule(false);
   }
+  new MutationObserver(updateArtGuide).observe(image,{attributes:true,attributeFilter:['src']});
   new MutationObserver(render).observe($('chapterMeta'),{childList:true,subtree:true,characterData:true});
   new MutationObserver(()=>{if(chapter.dataset.mode==='image')dismiss();else schedule(false)}).observe(chapter,{attributes:true,attributeFilter:['data-mode']});
   const result=document.querySelector('.battle-result-overlay');if(result)new MutationObserver(()=>{if(!result.hidden)dismiss();schedule(false)}).observe(result,{attributes:true,attributeFilter:['hidden']});

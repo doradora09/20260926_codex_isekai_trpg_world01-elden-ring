@@ -13,7 +13,7 @@ function show(id,updateHash=true){
  if(story.image&&/^assets\//.test(story.image)&&!story.image.includes('..')){
   const figure=el('figure',null,'story-art'),frame=el('div',null,'story-art-window'),img=el('img');
   img.src=story.image;img.alt=story.alt||story.character+'の掌編挿絵';const single=story.imageMode==='single';figure.classList.toggle('story-art-single',single);img.style.width=single?'100%':'200%';img.style.transform=!single&&story.imagePosition==='right'?'translateX(-50%)':'translateX(0)';
-  img.onload=()=>{const ratio=img.naturalWidth/((single?1:2)*img.naturalHeight);if(ratio>0){if(!single)figure.style.width=260*ratio+'px';frame.style.aspectRatio=String(ratio)}};img.onerror=()=>{figure.hidden=true};frame.append(img);figure.append(frame,el('figcaption',story.imageCaption||'DAY'+story.day));content.append(figure);
+  img.onload=()=>{const ratio=img.naturalWidth/((single?1:2)*img.naturalHeight);if(ratio>0){if(!single)figure.style.width='min(100%, '+Math.round(480*ratio)+'px)';frame.style.aspectRatio=String(ratio)}};img.onerror=()=>{figure.hidden=true};frame.append(img);figure.append(frame,el('figcaption',story.imageCaption||'DAY'+story.day));content.append(figure);
  }
  for(const p of story.paragraphs||[])content.append(el('p',p,'story-paragraph'));
  if(story.scene&&/^1-\d+(?:-[a-z]+)?$/.test(story.scene)){const a=el('a','この時の本編へ戻る →','story-source');a.href='reader.html#scene-'+story.scene;content.append(a)}
