@@ -36,7 +36,12 @@ $('readingMode').onchange=e=>setReadingMode(e.target.value);$('imageToggle').onc
 function closeSideStories(){if($('sideStoryDialog').open)$('sideStoryDialog').close()}
 function renderSideStoryShortcut(stories){
  closeSideStories();const button=$('sideStoryShortcut'),list=$('sideStoryLinks');list.replaceChildren();button.hidden=!stories.length;
- button.textContent='サイドストーリーを読む'+(stories.length>1?' · '+stories.length+'話':'');
+ const all=typeof SIDE_STORIES==='undefined'?[]:SIDE_STORIES.stories||[];
+ const names=[...new Set(stories.map(s=>(all.find(full=>full.id===s.id)?.character||s.character||'').trim()).filter(Boolean))];
+ const shortNames=names.slice(0,2).map(name=>name.split(/[\s　]+/).at(-1)).join('・')+(names.length>2?' ほか'+(names.length-2)+'人':'');
+ button.textContent='サイドストーリー'+(shortNames?'（'+shortNames+'）':'');
+ button.title=names.join('・')+'のサイドストーリー（'+stories.length+'話）';
+ button.setAttribute('aria-label','サイドストーリーを読む'+(names.length?'（'+names.join('・')+'）':''));
  for(const story of stories){const box=el('section');box.className='side-story-link';const a=el('button',story.title+' →');a.type='button';a.onclick=()=>showInlineSideStory(story,stories);box.append(el('small',(story.character||'')+(story.day?' ／ DAY '+story.day:'')),a);if(story.summary)box.append(el('p',story.summary));list.append(box)}
 }
 function showInlineSideStory(entry,entries){
