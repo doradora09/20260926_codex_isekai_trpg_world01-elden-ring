@@ -49,7 +49,7 @@ function showInlineSideStory(entry,entries){
  const back=el('button','← 一覧に戻る');back.type='button';back.className='side-story-back';back.onclick=()=>{renderSideStoryShortcut(entries);$('sideStoryDialog').showModal();$('sideStoryLinks').querySelector('button')?.focus()};list.append(back);
  const title=el('h3',entry.title);title.tabIndex=-1;title.className='side-story-reading-title';list.append(title);
  if(!story){list.append(el('p','本文を読み込めませんでした。ページを再読み込みして、もう一度お試しください。'));title.focus();return}
- list.append(el('p',story.character+' ／ DAY '+story.day));
+ list.append(el('p',story.character+' ／ DAY '+story.day+(story.location?' ／ '+story.location:'')));
  if(story.image&&/^assets\//.test(story.image)&&!story.image.includes('..')){const figure=el('figure'),frame=el('div'),image=el('img');figure.className='side-story-reading-art';frame.className='side-story-reading-art-frame';const single=story.imageMode==='single';image.src=story.image;image.alt=story.character+'の掌編挿絵';image.style.width=single?'100%':'200%';image.style.transform=!single&&story.imagePosition==='right'?'translateX(-50%)':'translateX(0)';image.onerror=()=>{figure.hidden=true};frame.append(image);figure.append(frame);if(story.imageCaption)figure.append(el('figcaption',story.imageCaption));list.append(figure)}
  const prose=el('div');prose.className='side-story-reading-prose';for(const text of story.paragraphs||[])prose.append(el('p',text));list.append(prose);$('sideStoryDialog').scrollTop=0;title.focus();
 }

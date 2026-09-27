@@ -9,7 +9,7 @@ function save(){try{sessionStorage.setItem(key,JSON.stringify({id:active,scroll:
 function show(id,updateHash=true){
  const story=stories.find(s=>s.id===id);content.replaceChildren();reader.scrollTop=0;
  if(!story){active=null;content.append(el('h2','読みたい物語を選んでください。'));return;}
- active=story.id;content.append(el('p',story.character+' · DAY '+story.day+(story.readMinutes?' · 約'+story.readMinutes+'分':''),'story-meta'),el('h2',story.title));
+ active=story.id;content.append(el('p',story.character+' · DAY '+story.day+(story.location?' · '+story.location:'')+(story.readMinutes?' · 約'+story.readMinutes+'分':''),'story-meta'),el('h2',story.title));
  if(story.image&&/^assets\//.test(story.image)&&!story.image.includes('..')){
   const figure=el('figure',null,'story-art'),frame=el('div',null,'story-art-window'),img=el('img');
   img.src=story.image;img.alt=story.alt||story.character+'の掌編挿絵';const single=story.imageMode==='single';figure.classList.toggle('story-art-single',single);img.style.width=single?'100%':'200%';img.style.transform=!single&&story.imagePosition==='right'?'translateX(-50%)':'translateX(0)';
@@ -24,9 +24,9 @@ function show(id,updateHash=true){
 }
 const people=[...new Map(stories.map(s=>[s.characterId,{id:s.characterId,name:s.character,category:s.category}])).values()];
 for(const [category,label] of [['student','生徒たち'],['companion','先生と旅で出会った人たち']]){const group=el('optgroup');group.label=label;for(const p of people.filter(p=>p.category===category).sort((a,b)=>a.id.localeCompare(b.id))){const option=el('option',p.name);option.value=p.id;group.append(option)}if(group.children.length)filter.append(group)}
-function renderList(){const q=norm(search.value);const matching=stories.filter(s=>(!filter.value||s.characterId===filter.value)&&(!q||norm(s.character+' '+s.title+' DAY'+s.day+' '+s.summary).includes(q))).sort((a,b)=>(order.value==='oldest'?a.day-b.day:b.day-a.day)||a.character.localeCompare(b.character,'ja'));
+function renderList(){const q=norm(search.value);const matching=stories.filter(s=>(!filter.value||s.characterId===filter.value)&&(!q||norm(s.character+' '+s.title+' DAY'+s.day+' '+(s.location||'')+' '+s.summary).includes(q))).sort((a,b)=>(order.value==='oldest'?a.day-b.day:b.day-a.day)||a.character.localeCompare(b.character,'ja'));
  list.replaceChildren();$('storyCount').textContent=matching.length+'話 ／ 全'+stories.length+'話';
- for(const s of matching){const b=el('button',null,'story-card');b.type='button';b.dataset.id=s.id;b.setAttribute('aria-pressed',String(s.id===active));b.append(el('small',s.character+' · DAY '+s.day),el('strong',s.title),el('p',s.summary));b.onclick=()=>{show(s.id);reader.focus()};list.append(b)}
+ for(const s of matching){const b=el('button',null,'story-card');b.type='button';b.dataset.id=s.id;b.setAttribute('aria-pressed',String(s.id===active));b.append(el('small',s.character+' · DAY '+s.day+(s.location?' · '+s.location:'')),el('strong',s.title),el('p',s.summary));b.onclick=()=>{show(s.id);reader.focus()};list.append(b)}
  if(!matching.length)list.append(el('p','該当する物語がありません。人物や検索語を変えてみてください。','story-empty'));updateBadges();
 }
 function updateBadges(){for(const b of list.querySelectorAll('button')){let badge=b.querySelector('.story-new');const unread=window.IsekaiNewContent?.isUnread('side-stories.html#'+b.dataset.id);if(unread&&!badge){badge=el('span','NEW','story-new');b.prepend(badge)}if(badge)badge.hidden=!unread}}
